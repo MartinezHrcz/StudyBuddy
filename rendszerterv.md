@@ -70,3 +70,24 @@ A rendszer célja továbbá:
 - Reszponzív elrendezés (mobil, tablet, desktop).  
 - Akadálymentesített (WCAG-kompatibilis) design.  
 - Dark / Light mód támogatása.  
+
+
+## 7. Adatbázis terv
+
+**Főbb táblák:**
+
+| Tábla | Leírás | Fő mezők |
+|--------|---------|----------|
+| **users** | Felhasználói fiókok | id, email, password_hash, name, created_at |
+| **topics** | Témák | id, title, description, created_by |
+| **notes** | AI által generált jegyzetek | id, topic_id, content, created_at |
+| **quizzes** | AI által generált kvízek | id, topic_id, created_at |
+| **questions** | Kvízkérdések | id, quiz_id, question_text, correct_answer |
+| **answers** | Kvízválaszok | id, question_id, answer_text, is_correct |
+| **results** | Kvízeredmények | id, user_id, quiz_id, score, date |
+
+**Kapcsolatok:**
+- Egy `user` több `topic`-ot és `quiz`-t hozhat létre.  
+- Egy `quiz` több `question`-t tartalmaz.  
+- Egy `question` több `answer`-rel kapcsolódik.  
+- Egy `result` egy `user` és egy `quiz` kapcsolatát tárolja.
