@@ -109,3 +109,11 @@ A rendszer célja továbbá:
   OpenAI API verziófrissítések figyelése, paraméterek hangolása.  
 - **Felhasználói támogatás:**  
   Hibabejelentő visszajelzés a felületen.
+
+## 10. Biztonsági terv
+
+- **Hitelesítés:** JWT token-alapú azonosítás.  
+- **Adattitkosítás:** bcrypt jelszóhash, HTTPS kommunikáció.  
+- **Adatvédelem:** GDPR-kompatibilis adatkezelés.  
+- **Hibakezelés:** REST API hibakódok és biztonságos naplózás.  
+- **Mentések:** napi adatbázis-backup automatikusan.
