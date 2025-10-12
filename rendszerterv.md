@@ -142,3 +142,11 @@ A rendszer célja továbbá:
 | **Funkcionális tesztek** | Felhasználói funkciók tesztelése | Cypress, Selenium |
 | **Teljesítményteszt** | AI hívások és válaszidő mérése | Locust, k6 |
 | **Biztonsági teszt** | Jogosultság, adatvédelem | OWASP ZAP |
+
+## 13. Jövőbeli fejlesztési lehetőségek
+
+- **Többnyelvű támogatás** (angol, német, magyar).  
+- **Csoportos tanulási mód** (megosztható kvízek).  
+- **Tanulási statisztika AI elemzéssel** (gyengeségek felismerése).  
+- **Mobilalkalmazás** (React Native).  
+- **Offline mód** a korábbi jegyzetek megtekintéséhez.
