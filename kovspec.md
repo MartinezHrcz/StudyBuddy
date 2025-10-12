@@ -49,3 +49,15 @@ A jövőbeni, ideális rendszer (a Study Buddy):
 5. A felhasználó visszajelzést kap, és új anyagokat próbálhat.
 
 ---
+
+## 5. Követelménylista
+
+| Azonosító | Követelmény | Típus (F/NF) | Leírás |
+|------------|-------------|---------------|---------|
+| K1 | Regisztráció és bejelentkezés | F | A felhasználók fiókot hozhatnak létre, és biztonságosan bejelentkezhetnek. |
+| K2 | Témakör kiválasztása | F | A felhasználó választhat előre definiált vagy egyéni témát. |
+| K3 | Jegyzet generálás | F | Az AI automatikusan készít összefoglalót a megadott témában. |
+| K4 | Kvízkérdések generálása | F | Az AI automatikusan kvízkérdéseket és válaszlehetőségeket hoz létre. |
+| K5 | Kvíz kitöltése és értékelés | F | A rendszer értékeli a válaszokat, és pontszámot ad. |
+
+---
