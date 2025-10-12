@@ -28,5 +28,16 @@ A jövőbeni, ideális rendszer (a Study Buddy):
 - a megadott témában automatikusan generál **összefoglaló jegyzetet**,  
 - képes **kvízkérdéseket** készíteni a tananyag alapján,  
 - elemzi a felhasználó eredményeit, és ezek alapján javasol új gyakorlóanyagokat
+- mobilról és asztali gépről is könnyen használható,  
+- egyszerű, intuitív és játékos felhasználói élményt biztosít.
+
+---
+
+## 4. Jelenlegi üzleti folyamatok modellje
+**(Jelenlegi, nem automatizált folyamat)**  
+1. A diák saját maga keres tananyagokat az interneten.  
+2. Ezekből kézzel készít jegyzeteket vagy kártyákat.  
+3. Saját maga próbál kvízeket keresni a gyakorláshoz.  
+4. Az eredményeit nem méri rendszeresen, csak becsüli a tudását.
 
 ---
