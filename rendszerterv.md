@@ -132,3 +132,13 @@ A rendszer célja továbbá:
 3. Django hívja az AI API-t és feldolgozza az eredményt.  
 4. Az eredményt PostgreSQL-ben tárolja.  
 5. Az Express továbbítja a React felé a megjelenítéshez.
+
+## 12. Tesztelési terv
+
+| Teszt típus | Cél | Eszköz |
+|--------------|-----|--------|
+| **Unit tesztek** | Egyes modulok működésének ellenőrzése | PyTest, Jest |
+| **Integrációs tesztek** | Backend–Frontend kommunikáció | Postman, Insomnia |
+| **Funkcionális tesztek** | Felhasználói funkciók tesztelése | Cypress, Selenium |
+| **Teljesítményteszt** | AI hívások és válaszidő mérése | Locust, k6 |
+| **Biztonsági teszt** | Jogosultság, adatvédelem | OWASP ZAP |
