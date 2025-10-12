@@ -96,3 +96,15 @@ A felület minimalista, letisztult, és játékos elemekkel (progress bar, szint
 Reszponzív kialakításnak köszönhetően telefonon is teljes értékűen működik.
 
 ---
+
+## 7. Fogalomtár
+
+| Fogalom | Jelentés |
+|----------|-----------|
+| **AI (Mesterséges Intelligencia)** | Olyan algoritmus, amely természetes nyelven képes jegyzeteket és kvízkérdéseket generálni. |
+| **API** | Programozási interfész, amelyen keresztül a rendszer kommunikál az AI szolgáltatással. |
+| **Frontend** | A felhasználó által látott és használt felület (React). |
+| **Backend** | A szerveroldali logika (Express + Django). |
+| **Kvíz** | Olyan kérdéssorozat, amelyet a rendszer generál a tanulás tesztelésére. |
+| **Jegyzet** | Rövid összefoglaló a tananyagból, amelyet az AI készít. |
+| **Felhasználói profil** | A felhasználó személyes adatai és eredményeinek összessége. |
