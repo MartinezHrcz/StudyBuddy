@@ -99,4 +99,7 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - Az API kommunikáció **HTTPS** protokollon keresztül történik.    
 ---
 
-3. Összefoglalás
+3. Összefoglalás:
+
+A **Study Buddy** egy többtechnológiás, AI-alapú tanulást segítő webalkalmazás, amely React, Express és Django technológiák integrálásával biztosítja a személyre szabott tanulási élményt.  
+A rendszer automatizáltan generál tananyagot és kvízeket, értékeli a teljesítményt, és statisztikai visszajelzéseket ad, ezáltal támogatva a hatékony és motivált tanulást.
