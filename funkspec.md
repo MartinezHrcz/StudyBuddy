@@ -57,6 +57,16 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - **Profil megtekintése / szerkesztése:**  
   A felhasználó módosíthatja adatait (pl. név, profilkép, preferált nyelv).  
 
+### 2.2 Témaválasztás és tanulási folyamat
+- **Témaválasztás:**  
+  A felhasználó választhat előre definiált témák közül vagy beírhat saját témát.  
+- **AI alapú tartalomgenerálás:**  
+  A Django backend az OpenAI API-t hívja meg, hogy létrehozzon:
+  - egy rövid **összefoglaló jegyzetet**,  
+  - és **5–10 kvízkérdést** a megadott témában.  
+- **Tananyag megjelenítése:**  
+  A React felület formázott módon jeleníti meg a jegyzetet és a kérdéseket.  
+
 ---
 
 3. Összefoglalás
