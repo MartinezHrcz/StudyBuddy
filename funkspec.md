@@ -13,7 +13,7 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
      - Jegyzetek és kvízek megjelenítése  
      - Eredmények, statisztikák, fejlődési grafikonok megjelenítése  
      - Mobil- és asztali reszponzivitás  
-     
+
 2. **Köztes réteg (Express.js)**
    - REST API réteg, amely a frontend és a Django backend közötti kommunikációt biztosítja.  
    - Feladatai:
@@ -21,6 +21,15 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
      - Kérések továbbítása a Django szolgáltatások felé  
      - Adatok előfeldolgozása és formázása  
      - Hiba- és jogosultságkezelés  
+
+3. **Backend (Python Django)**
+   - A mesterséges intelligencia és az adatkezelés fő logikai rétege.  
+   - Feladatai:
+     - Kvízkérdések és jegyzetek generálása AI segítségével  
+     - Felhasználói adatok, témák és eredmények tárolása  
+     - Eredmények kiértékelése és ajánlások generálása  
+   - Az AI feldolgozás az **OpenAI API** (vagy más AI szolgáltatás) felhasználásával történik.  
+
 
 2. Alkalmazá funkcionalitása:
 
