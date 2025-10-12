@@ -99,7 +99,30 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - Az API kommunikáció **HTTPS** protokollon keresztül történik.    
 ---
 
-3. Összefoglalás:
+## 3. Összefoglalás:
 
 A **Study Buddy** egy többtechnológiás, AI-alapú tanulást segítő webalkalmazás, amely React, Express és Django technológiák integrálásával biztosítja a személyre szabott tanulási élményt.  
 A rendszer automatizáltan generál tananyagot és kvízeket, értékeli a teljesítményt, és statisztikai visszajelzéseket ad, ezáltal támogatva a hatékony és motivált tanulást.
+
+## 4. Fogalomtár
+
+| Fogalom | Jelentés |
+| :--- | :--- |
+| **AI (Mesterséges Intelligencia)** | Olyan algoritmus, amely természetes nyelven képes jegyzeteket és kvízkérdéseket generálni. |
+| **API** | Programozási interfész, amelyen keresztül a rendszer kommunikál az AI szolgáltatással. |
+| **Frontend** | A felhasználó által látott és használt felület (**React**). |
+| **Backend** | A szerveroldali logika (**Express** + **Django**). |
+| **Kvíz** | Olyan kérdéssorozat, amelyet a rendszer generál a tanulás tesztelésére. |
+| **Jegyzet** | Rövid összefoglaló a tananyagból, amelyet az AI készít. |
+| **Felhasználói profil** | A felhasználó személyes adatai és eredményeinek összessége. |
+| **OpenAI API** | Az **OpenAI** cég által biztosított **alkalmazásprogramozási felület**, amely hozzáférést biztosít a nagyméretű nyelvi modellekhez (LLM) (pl. GPT) a jegyzetek és kvízkérdések generálásához. |
+| **JWT (JSON Web Token)** | Nyílt szabvány, amely lehetővé teszi a hitelesítési információk biztonságos továbbítását a felek között **JSON** objektumként, általában a bejelentkezett felhasználók jogosultságainak ellenőrzésére használva. |
+| **Express.js** | **Node.js** alapú, gyors és minimalista webes alkalmazás keretrendszer, ami a jelen architektúrában **köztes REST API rétegként** szolgál. |
+| **React.js** | JavaScript könyvtár a **felhasználói felületek** (UI) építésére. Segíti a dinamikus, komponens alapú frontend fejlesztést. |
+| **Django** | Magas szintű, Python alapú webes keretrendszer, amely a jelen architektúrában az **adatkezelési logikáért** (ORM) és az **AI hívások** kezeléséért felel. |
+| **PostgreSQL** | Objektum-relációs adatbázis-kezelő rendszer, amelyet a felhasználói adatok, kvízek és statisztikák megbízható tárolására javasol az architektúra. |
+| **ORM (Object Relational Mapper)** | **(Django esetében)** Egy olyan programozási technika, amely lehetővé teszi az adatbázis adatainak és lekérdezéseinek kezelését az alkalmazás programozási nyelve (Python) objektumain keresztül SQL helyett. |
+| **bcrypt** | Egy kriptográfiai hash függvény, amelyet a **jelszavak biztonságos tárolására** használnak a visszafejtés megakadályozása érdekében. |
+| **HTTPS** | A **Hypertext Transfer Protocol Secure** rövidítése. Egy biztonságos kommunikációs protokoll, amely **titkosítással** védi az adatátvitelt a böngésző és a szerver között (pl. bejelentkezési adatok). |
+| **Gamifikáció** | Tanulási kontextusba beépített **játékos elemek** (pl. pontok, szintek, jelvények) használata a felhasználói elkötelezettség és motiváció növelésére. |
+| **Reszponzivitás (Design)** | A weboldal azon képessége, hogy **automatikusan alkalmazkodjon** a különböző képernyőméretekhez (mobil, tablet, asztali gép) anélkül, hogy a felhasználói élmény romlana. |
