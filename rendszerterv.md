@@ -91,3 +91,12 @@ A rendszer célja továbbá:
 - Egy `quiz` több `question`-t tartalmaz.  
 - Egy `question` több `answer`-rel kapcsolódik.  
 - Egy `result` egy `user` és egy `quiz` kapcsolatát tárolja.
+
+
+## 8. Fejlesztési ütemezés:
+  1. Alap backend struktúra (Django, modellek, API endpointok)  
+  2. Frontend inicializálás (React, routing, login rendszer)  
+  3. Express köztes réteg beépítése  
+  4. AI integráció (OpenAI API kapcsolódás)  
+  5. Tesztelés és hibajavítás  
+  6. Deployment (Render / Railway / Vercel / Heroku)  
