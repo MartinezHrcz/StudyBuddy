@@ -20,6 +20,16 @@ A rendszer célja továbbá:
 
 ## 3. Funkcionális követelmények
 
+| Azonosító | Funkcionalitás | Leírás |
+|------------|----------------|--------|
+| F1 | Regisztráció és bejelentkezés | Felhasználók biztonságos beléptetése JWT tokennel. |
+| F2 | Téma kiválasztása | A felhasználó megadhat saját témát vagy választhat a listából. |
+| F3 | Jegyzet generálása | AI automatikusan készít összefoglalót a témáról. |
+| F4 | Kvízkérdések generálása | AI létrehozza a kérdéseket és válaszlehetőségeket. |
+| F5 | Kvízkitöltés és értékelés | A rendszer pontozza a válaszokat és százalékos eredményt ad. |
+| F6 | Eredmények mentése és megjelenítése | A korábbi kvízek adatai tárolódnak és grafikonon jelennek meg. |
+| F7 | Reszponzív megjelenítés | A felület mobilon és asztali gépen is használható. |
+| F8 | Biztonság | Adatok titkosítása, biztonságos kommunikáció (HTTPS). |
 
 ## 4. A felület felépítése és a technológiák kapcsolódása
 
