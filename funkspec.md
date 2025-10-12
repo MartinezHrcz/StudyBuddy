@@ -39,6 +39,14 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
    - **OpenAI API**: természetes nyelvi feldolgozáshoz, jegyzetek és kérdések generálásához.  
    - **AI modell** paraméterezhető a téma, nehézségi szint és válaszhossz alapján.  
 
-2. Alkalmazá funkcionalitása:
+
+---
+
+## 2. Alkalmazás funkcionalitása
+
+Az alkalmazás célja, hogy a tanulók számára automatikusan generált tananyagokat és kvízeket biztosítson, valamint mérje a fejlődésüket.  
+Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
+
+---
 
 3. Összefoglalás
