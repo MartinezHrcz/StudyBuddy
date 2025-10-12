@@ -78,6 +78,14 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - **Eredmény mentése:**  
   Az eredmény, a dátum és a téma az adatbázisban eltárolódik.  
 
+### 2.4 Eredmények és statisztikák
+- **Eredmények listázása:**  
+  A felhasználó megtekintheti korábbi kvízeit és pontszámait.  
+- **Grafikonos megjelenítés:**  
+  A frontend vizuálisan ábrázolja a fejlődést (pl. React Chart.js vagy Recharts segítségével).  
+- **Ajánlások:**  
+  Az AI vagy a backend algoritmus javasolhat új témákat vagy ismétlő kvízeket az eredmények alapján.  
+
 ---
 
 3. Összefoglalás
