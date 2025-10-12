@@ -75,4 +75,8 @@ A felhasználó bejelentkezik, majd a kezdőoldalon látja:
 - ajánlott témaköröket,  
 - “Új tanulás indítása” gombot.
 
+### 6.2 Kvíz indítása  
+A felhasználó kiválasztja a kívánt témát, majd elindítja a kvízt.  
+A háttérben az AI generál 5–10 kérdést, négy válaszlehetőséggel.  
+
 ---
