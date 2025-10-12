@@ -117,3 +117,18 @@ A rendszer célja továbbá:
 - **Adatvédelem:** GDPR-kompatibilis adatkezelés.  
 - **Hibakezelés:** REST API hibakódok és biztonságos naplózás.  
 - **Mentések:** napi adatbázis-backup automatikusan.
+
+## 11. Rendszerarchitektúra ábra (logikai modell)
+
+```
+[React Frontend]  →  [Express API Gateway]  →  [Django Backend]  →  [PostgreSQL DB]
+                                       ↘
+                                        →  [OpenAI API / AI Service]
+```
+
+**Adatáramlás:**  
+1. A felhasználó React felületen keresztül adja meg a témát.  
+2. Express közvetíti a kérést Django felé.  
+3. Django hívja az AI API-t és feldolgozza az eredményt.  
+4. Az eredményt PostgreSQL-ben tárolja.  
+5. Az Express továbbítja a React felé a megjelenítéshez.
