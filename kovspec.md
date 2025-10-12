@@ -67,7 +67,7 @@ A jövőbeni, ideális rendszer (a Study Buddy):
 
 ---
 
-## 6. Szabad riport – A rendszer elvárt működése
+## 6. A rendszer elvárt működése
 
 ### 6.1 Bejelentkezés és kezdőfelület  
 A felhasználó bejelentkezik, majd a kezdőoldalon látja:  
@@ -79,4 +79,7 @@ A felhasználó bejelentkezik, majd a kezdőoldalon látja:
 A felhasználó kiválasztja a kívánt témát, majd elindítja a kvízt.  
 A háttérben az AI generál 5–10 kérdést, négy válaszlehetőséggel.  
 
+### 6.3 Kérdések megválaszolása  
+A felhasználó lépésről lépésre megválaszolja a kérdéseket.  
+A rendszer azonnali visszajelzést is adhat (helyes / helytelen válasz).  
 ---
