@@ -87,4 +87,8 @@ A rendszer azonnali visszajelzést is adhat (helyes / helytelen válasz).
 A kvíz végén a rendszer kiszámolja a pontszámot és százalékos eredményt.  
 A felhasználó láthatja, mely kérdésekre válaszolt rosszul, és újra próbálhatja a kvízt. 
 
+### 6.5 Eredmények nyomon követése  
+A rendszer menti a korábbi eredményeket, és grafikonon jeleníti meg a fejlődést.  
+A felhasználó láthatja, mely témákban erős, és hol érdemes ismételnie.  
+
 ---
