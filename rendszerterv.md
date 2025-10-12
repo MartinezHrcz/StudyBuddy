@@ -100,3 +100,12 @@ A rendszer célja továbbá:
   4. AI integráció (OpenAI API kapcsolódás)  
   5. Tesztelés és hibajavítás  
   6. Deployment (Render / Railway / Vercel / Heroku)  
+
+  ## 9. Karbantartási terv
+
+- **Kódkarbantartás:**  
+  Verzióváltások és bugfixek rendszeres bevezetése Git ágon keresztül.    
+- **AI modell frissítése:**  
+  OpenAI API verziófrissítések figyelése, paraméterek hangolása.  
+- **Felhasználói támogatás:**  
+  Hibabejelentő visszajelzés a felületen.
