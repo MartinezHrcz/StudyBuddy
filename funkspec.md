@@ -86,6 +86,15 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - **Ajánlások:**  
   Az AI vagy a backend algoritmus javasolhat új témákat vagy ismétlő kvízeket az eredmények alapján.  
 
+### 2.5 Felhasználói élmény és UI
+- **Reszponzív design:**  
+  Mobilon és asztali gépen is jól használható.  
+- **Gamifikáció:**  
+  A felhasználó szinteket vagy teljesítményértékeket kaphat.  
+- **Egyszerű, letisztult interfész:**  
+  Minimalista, modern felhasználói élmény, sötét/világos mód támogatással.  
+
+
 ---
 
 3. Összefoglalás
