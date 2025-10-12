@@ -91,4 +91,8 @@ A felhasználó láthatja, mely kérdésekre válaszolt rosszul, és újra prób
 A rendszer menti a korábbi eredményeket, és grafikonon jeleníti meg a fejlődést.  
 A felhasználó láthatja, mely témákban erős, és hol érdemes ismételnie.  
 
+### 6.6 Felhasználói élmény  
+A felület minimalista, letisztult, és játékos elemekkel (progress bar, szintek, badge-ek) motiválja a tanulót.  
+Reszponzív kialakításnak köszönhetően telefonon is teljes értékűen működik.
+
 ---
