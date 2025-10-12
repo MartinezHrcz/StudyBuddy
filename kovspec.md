@@ -40,4 +40,12 @@ A jövőbeni, ideális rendszer (a Study Buddy):
 3. Saját maga próbál kvízeket keresni a gyakorláshoz.  
 4. Az eredményeit nem méri rendszeresen, csak becsüli a tudását.
 
+
+**A Study Buddy által bevezetett új folyamat:**
+1. A felhasználó kiválaszt egy témát.  
+2. Az AI létrehozza a jegyzetet és a kvízt.  
+3. A felhasználó kitölti a kvízt.  
+4. A rendszer értékeli és tárolja az eredményt.  
+5. A felhasználó visszajelzést kap, és új anyagokat próbálhat.
+
 ---
