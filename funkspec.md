@@ -67,6 +67,17 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - **Tananyag megjelenítése:**  
   A React felület formázott módon jeleníti meg a jegyzetet és a kérdéseket.  
 
+### 2.3 Kvízkitöltés és értékelés
+- **Kvízindítás:**  
+  A felhasználó elindíthatja a kvízt a kiválasztott témához.  
+- **Kérdések kezelése:**  
+  Minden kérdés 4 válaszlehetőséget tartalmaz.  
+  A rendszer opcionálisan azonnal jelzi a helyes választ.  
+- **Eredménykiszámítás:**  
+  A backend kiszámolja a helyes válaszok arányát és százalékos eredményt ad vissza.  
+- **Eredmény mentése:**  
+  Az eredmény, a dátum és a téma az adatbázisban eltárolódik.  
+
 ---
 
 3. Összefoglalás
