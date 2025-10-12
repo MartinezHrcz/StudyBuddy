@@ -81,5 +81,10 @@ A háttérben az AI generál 5–10 kérdést, négy válaszlehetőséggel.
 
 ### 6.3 Kérdések megválaszolása  
 A felhasználó lépésről lépésre megválaszolja a kérdéseket.  
-A rendszer azonnali visszajelzést is adhat (helyes / helytelen válasz).  
+A rendszer azonnali visszajelzést is adhat (helyes / helytelen válasz).
+
+### 6.4 Kvíz befejezése és eredmény  
+A kvíz végén a rendszer kiszámolja a pontszámot és százalékos eredményt.  
+A felhasználó láthatja, mely kérdésekre válaszolt rosszul, és újra próbálhatja a kvízt. 
+
 ---
