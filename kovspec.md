@@ -59,5 +59,10 @@ A jövőbeni, ideális rendszer (a Study Buddy):
 | K3 | Jegyzet generálás | F | Az AI automatikusan készít összefoglalót a megadott témában. |
 | K4 | Kvízkérdések generálása | F | Az AI automatikusan kvízkérdéseket és válaszlehetőségeket hoz létre. |
 | K5 | Kvíz kitöltése és értékelés | F | A rendszer értékeli a válaszokat, és pontszámot ad. |
+| K6 | Eredmények mentése | F | A rendszer tárolja az előző kvízek eredményeit. |
+| K7 | Eredmények megtekintése | F | A felhasználó visszanézheti a múltbeli teljesítményét. |
+| K8 | Reszponzív felület | NF | A webalkalmazás mobilon és asztali gépen is jól működik. |
+| K9 | AI integráció | NF | A rendszer külső AI API-t használ (pl. OpenAI). |
+| K10 | Adatvédelem | NF | A felhasználói adatok titkosítva kerülnek tárolásra. |
 
 ---
