@@ -21,3 +21,12 @@ A diákok gyakran:
 Hiányzik egy olyan **interaktív rendszer**, amely azonnal képes tanulási segédanyagot és gyakorlófeladatokat létrehozni bármely megadott témában.
 
 ---
+
+## 3. Vágyálom rendszer
+A jövőbeni, ideális rendszer (a Study Buddy):
+- képes **valós időben** reagálni a felhasználó igényeire,  
+- a megadott témában automatikusan generál **összefoglaló jegyzetet**,  
+- képes **kvízkérdéseket** készíteni a tananyag alapján,  
+- elemzi a felhasználó eredményeit, és ezek alapján javasol új gyakorlóanyagokat
+
+---
