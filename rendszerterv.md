@@ -103,12 +103,37 @@ A rendszer célja továbbá:
 
   ## 9. Karbantartási terv
 
-- **Kódkarbantartás:**  
-  Verzióváltások és bugfixek rendszeres bevezetése Git ágon keresztül.    
-- **AI modell frissítése:**  
-  OpenAI API verziófrissítések figyelése, paraméterek hangolása.  
-- **Felhasználói támogatás:**  
-  Hibabejelentő visszajelzés a felületen.
+## Működés és Karbantartás
+
+---
+
+### **Kódkarbantartás:**
+
+* **Verzióváltások és bugfixek rendszeres bevezetése Git ágon keresztül.** A fejlesztés a **GitFlow** (vagy hasonló, ág alapú) munkafolyamatot követi:
+    * **`main` (vagy `master`):** Éles (produkciós) kód. Kizárólag tesztelt kód kerül ide beolvasztásra (`merge`).
+    * **`develop`:** Integrációs ág. Az összes új funkció ide kerül beolvasztásra.
+    * **`feature` ágak:** Minden új funkció külön ágon (pl. `feature/nev-funkcio`) készül el.
+    * **`bugfix` ágak:** Hibajavítások külön ágon (pl. `bugfix/issue-szam`).
+    * **Pull Requestek (PRs):** Minden beolvasztás (merge) előtt kötelező a **Pull Request (PR)** használata a kódban, ami magában foglalja a **Code Review-t** (kódellenőrzést) is.
+* **CI/CD (Continuous Integration/Continuous Deployment):** **GitHub Actions** vagy **GitLab CI** segítségével automatizált tesztek futtatása minden PR esetén (unit, integrációs és end-to-end tesztek futtatása a **React** frontend és a **Node.js/Django** backend rétegeken). Sikeres tesztek esetén automatikus buildelés és deployment a staging/éles környezetbe.
+* **Függőségek kezelése:** Rendszeres (legalább havi) frissítés a külső könyvtárakhoz (**`package.json`** a Node.js/React számára és **`requirements.txt`** vagy **`Pipfile`** a Django számára) a biztonsági rések (vulnerability) elkerülése és a kompatibilitás megőrzése érdekében.
+
+---
+
+### **AI modell frissítése:**
+
+* **OpenAI API verziófrissítések figyelése, paraméterek hangolása.** Az API hívásokat egy **absztrakciós réteg** mögé helyezzük a backendben (Django/Node.js), hogy a modellváltások minimális beavatkozást igényeljenek a fő logikában.
+* **Prompt Engineering és Finomhangolás:** Rendszeres felülvizsgálat a prompt sablonokon a jobb tanulási segédanyagok és gyakorlófeladatok generálása érdekében. A **prompt verziózás** implementálása, hogy könnyen vissza lehessen térni korábbi, jól teljesítő beállításokhoz.
+
+---
+
+### **Felhasználói támogatás:**
+
+* **Hibabejelentő visszajelzés a felületen.** Kiegészítve a hibabejelentési mechanizmust:
+    * **Integráció:** A bejelentések automatikusan bekerülnek egy projektmenedzsment rendszerbe (**Jira/Trello/GitHub Issues**) a nyomon követhetőség és a feladatok delegálása érdekében.
+    * **Naplózás (Logging):** Minden kritikus **backend (Node.js/Django)** és **frontend (React)** művelet naplózása (**ELK Stack, Sentry, vagy AWS CloudWatch**) segítségével. A felhasználói hiba bejelentésekor a rendszer automatikusan begyűjti a releváns **alkalmazás- és szerver-naplókat** a gyors hibaelhárítás érdekében.
+    * **SLA (Service Level Agreement):** Definált válaszidők és felbontási célok beállítása a bejelentett hibák súlyossága alapján (kritikus, magas, közepes, alacsony).
+    * **Tudásbázis:** Gyakran ismételt kérdések (FAQ) és hibaelhárítási útmutatók karbantartása a felhasználói felületen belül.
 
 ## 10. Biztonsági terv
 
