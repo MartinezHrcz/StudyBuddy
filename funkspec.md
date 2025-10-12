@@ -47,6 +47,16 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
 Az alkalmazás célja, hogy a tanulók számára automatikusan generált tananyagokat és kvízeket biztosítson, valamint mérje a fejlődésüket.  
 Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 
+
+### 2.1 Felhasználói fiókkezelés
+- **Regisztráció:**  
+  A felhasználó e-mail cím és jelszó megadásával új fiókot hoz létre.  
+  A rendszer ellenőrzi az e-mail egyediségét és a jelszó minimális biztonsági feltételeit.  
+- **Bejelentkezés:**  
+  A felhasználó hitelesítése JWT tokennel történik.  
+- **Profil megtekintése / szerkesztése:**  
+  A felhasználó módosíthatja adatait (pl. név, profilkép, preferált nyelv).  
+
 ---
 
 3. Összefoglalás
