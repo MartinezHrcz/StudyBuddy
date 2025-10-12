@@ -66,3 +66,13 @@ A jövőbeni, ideális rendszer (a Study Buddy):
 | K10 | Adatvédelem | NF | A felhasználói adatok titkosítva kerülnek tárolásra. |
 
 ---
+
+## 6. Szabad riport – A rendszer elvárt működése
+
+### 6.1 Bejelentkezés és kezdőfelület  
+A felhasználó bejelentkezik, majd a kezdőoldalon látja:  
+- saját korábbi eredményeit,  
+- ajánlott témaköröket,  
+- “Új tanulás indítása” gombot.
+
+---
