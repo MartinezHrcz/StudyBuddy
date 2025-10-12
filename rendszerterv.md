@@ -10,6 +10,14 @@ A rendszer célja továbbá:
 
 ## 2. A rendszerrel szemben támasztott általános követelmények
 
+- A rendszer legyen **webalapú**, platformfüggetlen és reszponzív.  
+- Biztosítson **stabil, gyors és biztonságos működést**.  
+- A felhasználói adatok legyenek védettek és titkosított formában tárolva.  
+- Az alkalmazás integrálható legyen külső AI-szolgáltatásokkal (OpenAI API).  
+- Az architektúra legyen **moduláris**, hogy könnyen bővíthető és karbantartható legyen.  
+- Támogassa a többfelhasználós működést és egyidejű kérések kezelését.
+
+
 ## 3. Funkcionális követelmények
 
 
