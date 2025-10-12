@@ -51,3 +51,22 @@ A rendszer célja továbbá:
    - Tárolja: felhasználók, témák, kvízek, eredmények.  
    - Django ORM felel az adatlekérésekért és integritásért.
 
+## 5. Felhasználó által elérhető funkciók
+
+- Fiók létrehozása, bejelentkezés és kijelentkezés  
+- Téma kiválasztása vagy megadása  
+- Jegyzet generálása adott témában  
+- Kvíz létrehozása és kitöltése  
+- Eredmények megtekintése és összehasonlítása  
+- Saját fejlődés grafikonos megjelenítése  
+- Profiladatok szerkesztése  
+- Újratanulás vagy ismétlés indítása  
+
+## 6. Felülettel szemben támasztott követelmények
+
+- Letisztult, intuitív felhasználói élmény.  
+- Egységes színvilág és ikonrendszer.  
+- Gyors betöltési idő (< 2 másodperc).  
+- Reszponzív elrendezés (mobil, tablet, desktop).  
+- Akadálymentesített (WCAG-kompatibilis) design.  
+- Dark / Light mód támogatása.  
