@@ -94,7 +94,9 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - **Egyszerű, letisztult interfész:**  
   Minimalista, modern felhasználói élmény, sötét/világos mód támogatással.  
 
-
+### 2.6 Biztonság és adatvédelem
+- Jelszavak **bcrypt** algoritmussal kerülnek titkosításra.  
+- Az API kommunikáció **HTTPS** protokollon keresztül történik.    
 ---
 
 3. Összefoglalás
