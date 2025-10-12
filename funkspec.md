@@ -30,6 +30,10 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
      - Eredmények kiértékelése és ajánlások generálása  
    - Az AI feldolgozás az **OpenAI API** (vagy más AI szolgáltatás) felhasználásával történik.  
 
+4. **Adatbázis**
+   - Tárolja a felhasználói fiókokat, témaköröket, generált kvízeket, eredményeket és statisztikákat.  
+   - Javasolt adatbázis: **PostgreSQL**.  
+   - Kapcsolat a Django ORM-en (Object Relational Mapper) keresztül.  
 
 2. Alkalmazá funkcionalitása:
 
