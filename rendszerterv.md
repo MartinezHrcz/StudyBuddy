@@ -1,7 +1,8 @@
 Study buddy - Rendszerterv
 
 ## 1. A rendszer célja
-A **Study Buddy** célja, hogy mesterséges intelligencia segítségével **támogassa a tanulást** azáltal, hogy a felhasználó által megadott témákból **összefoglaló jegyzeteket** és **kvízkérdéseket** generál.  
+A **Study Buddy** célja, hogy mesterséges intelligencia segítségével **támogassa a tanulást** azáltal, hogy a felhasználó által megadott témákból **összefoglaló jegyzeteket** és **kvízkérdéseket** generál.
+A rendszer célkitűzése a tanulási hatékonyság mérése és növelése adatvezérelt módon. A platform figyeli a felhasználó teljesítményét, és az AI személyre szabott tanulási útvonalakat javasol. Emellett motivációs elemek (pl. napi kihívások, jutalmak) beépítésével is fenntartja a felhasználó érdeklődését.  
 A rendszer célja továbbá:
 - az ismeretszerzés hatékonyságának növelése 
 - az önellenőrzés és visszajelzés automatizálása 
@@ -16,6 +17,10 @@ A rendszer célja továbbá:
 - Az alkalmazás integrálható legyen külső AI-szolgáltatásokkal (OpenAI API).  
 - Az architektúra legyen **moduláris**, hogy könnyen bővíthető és karbantartható legyen.  
 - Támogassa a többfelhasználós működést és egyidejű kérések kezelését.
+- A rendszer legyen felhőalapú környezetben futtatható.
+- A fejlesztés során fontos a DevOps szemlélet, így a telepítés, tesztelés és monitoring is automatizált.
+- Ezen felül a rendszer offline fallback funkciót is biztosíthat a korábban letöltött tananyagokhoz.
+
 
 
 ## 3. Funkcionális követelmények
