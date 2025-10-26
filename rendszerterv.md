@@ -43,20 +43,29 @@ A rendszer célja továbbá:
 ## 4. A felület felépítése és a technológiák kapcsolódása
 
 1. **Frontend – React.js**
+- Használható TypeScript a hibák megelőzésére
+- Frontend automatikus tesztelését a Jest + React Testing Library biztosíthatja.
    - Feladata: felhasználói interakciók kezelése, megjelenítés.  
    - Kommunikáció: REST API hívások az Express.js felé.  
    - Könyvtárak: React Router, Axios, Chart.js / Recharts.
 
 2. **Köztes réteg – Express.js**
+- Az Express réteg API Gateway szerepet is elláthat.
+- Middleware rétegek gondoskodnak a CORS szabályozásról és a kérés-validálásról.
    - Feladata: közvetítés a React és Django között.  
    - Hitelesítés és kéréskezelés
    - REST API endpointok definiálása.  
 
 3. **Backend – Django (Python)**
+- A Django REST Framework (DRF) biztosítja az endpointokat.
+- A backend képes verziózott AI-modell paraméterezésre is.
    - Feladata: AI integráció, adatkezelés, eredményszámítás.  
    - Kommunikáció: OpenAI API hívások, PostgreSQL adatbázis.  
 
 4. **Adatbázis – PostgreSQL**
+- Az adatbázis optimalizálható indexekkel és cache-megoldással.
+- Fontos a migrációs rendszer (Django Migrations).
+- Az adatbázis mentések és visszaállítások automatizálása.
    - Tárolja: felhasználók, témák, kvízek, eredmények.  
    - Django ORM felel az adatlekérésekért és integritásért.
 
