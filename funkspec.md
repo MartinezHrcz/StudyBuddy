@@ -50,7 +50,8 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
 
 ## 2. Alkalmazás funkcionalitása
 
-Az alkalmazás célja, hogy a tanulók számára automatikusan generált tananyagokat és kvízeket biztosítson, valamint mérje a fejlődésüket.  
+Az alkalmazás célja, hogy a tanulók számára automatikusan generált tananyagokat és kvízeket biztosítson, valamint mérje a fejlődésüket.
+A fő funkciók modulárisak, így külön fejleszthetők és tesztelhetők. Minden modulhoz API endpoint dokumentáció (Swagger/OpenAPI) is készül a fejlesztők számára.  
 Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 
 
