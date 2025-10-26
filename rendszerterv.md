@@ -118,6 +118,8 @@ A rendszer célja továbbá:
 
 
 ## 8. Fejlesztési ütemezés:
+- A fejlesztési folyamat agilis (Scrum) módszertannal zajlik 2 hetes sprintekben.
+- Minden sprint végén van demo és retrospektív.
   1. Alap backend struktúra (Django, modellek, API endpointok)  
   2. Frontend inicializálás (React, routing, login rendszer)  
   3. Express köztes réteg beépítése  
@@ -125,7 +127,7 @@ A rendszer célja továbbá:
   5. Tesztelés és hibajavítás  
   6. Deployment (Render / Railway / Vercel / Heroku)  
 
-  ## 9. Karbantartási terv
+## 9. Karbantartási terv
 
 ## Működés és Karbantartás
 
@@ -166,8 +168,15 @@ A rendszer célja továbbá:
 - **Adatvédelem:** GDPR-kompatibilis adatkezelés.  
 - **Hibakezelés:** REST API hibakódok és biztonságos naplózás.  
 - **Mentések:** napi adatbázis-backup automatikusan.
+- A rendszer védi magát:
+  - Brute-force támadások ellen rate-limitinggel.
+  - XSS és CSRF ellen beépített middleware-ekkel.
+  - Backup-ok titkosított formában AWS S3-on tárolva.
+  - Hibás API-hívások naplózása audit trail formában.
 
-## 11. Rendszerarchitektúra ábra (logikai modell)
+## 11. Rendszerarchitektúra (logikai modell)
+A komponensek között HTTPS alapú kommunikáció történik, JSON formátumú adatokkal.
+Az architektúra horizontálisan skálázható: a backend és az API gateway külön konténerben (Docker) futtatható.
 
 ```
 [React Frontend]  →  [Express API Gateway]  →  [Django Backend]  →  [PostgreSQL DB]
