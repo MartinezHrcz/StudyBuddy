@@ -81,7 +81,15 @@ A rendszer célja továbbá:
 - Újratanulás vagy ismétlés indítása
 - Közösségi megosztás (pl. tananyag export vagy linkmegosztás)
 - AI-asszisztens chat a téma elmélyítésére
-- Értesítések (push/email)  
+- Értesítések (push/email)
+- Bejelentkezési ábra:
+
+![Bejelentkezes](./Ábrák/Bejelentkezes_graf.svg)
+
+- Regisztrációs ábra:
+
+![Regisztracio](./Ábrák/Regisztracio_graf.svg)
+
 
 ## 6. Felülettel szemben támasztott követelmények
 
