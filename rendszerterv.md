@@ -192,6 +192,9 @@ Az architektúra horizontálisan skálázható: a backend és az API gateway kü
 5. Az Express továbbítja a React felé a megjelenítéshez.
 
 ## 12. Tesztelési terv
+- A CI/CD pipeline automatikusan futtatja ezeket a teszteket minden új commit után.
+- A teszteredményekről automatikus jelentés készül (Allure Report / Jest Coverage).
+- A felhasználói A/B tesztek segítenek a UI döntések validálásában.
 
 | Teszt típus | Cél | Eszköz |
 |--------------|-----|--------|
@@ -208,3 +211,7 @@ Az architektúra horizontálisan skálázható: a backend és az API gateway kü
 - **Tanulási statisztika AI elemzéssel** (gyengeségek felismerése).  
 - **Mobilalkalmazás** (React Native).  
 - **Offline mód** a korábbi jegyzetek megtekintéséhez.
+- **AI mentor mód** a felhasználó kérdezhet a tananyagról chat formában.
+- **API nyilvános dokumentáció** más fejlesztők is integrálhatják a rendszert.
+- **Gamifikált ranglista** a felhasználók pontok alapján versenyezhetnek.
+- **Tanári felület** tanárok kvízeket készíthetnek és követhetik a diákok előrehaladását.
