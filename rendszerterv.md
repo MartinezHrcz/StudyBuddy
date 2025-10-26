@@ -35,6 +35,10 @@ A rendszer célja továbbá:
 | F6 | Eredmények mentése és megjelenítése | A korábbi kvízek adatai tárolódnak és grafikonon jelennek meg. |
 | F7 | Reszponzív megjelenítés | A felület mobilon és asztali gépen is használható. |
 | F8 | Biztonság | Adatok titkosítása, biztonságos kommunikáció (HTTPS). |
+| F9 | Jelszóvisszaállítás és e-mail hitelesítés | Elfelejtett jelszó esetén a rendszer e-mailben helyreállítási linket küld. |
+| F10 | Szintlépés | A felhasználók pontokat és jelvényeket kapnak a kvízek kitöltéséért, napi aktivitásért és fejlődésért. |
+| F11 | AI-alapú ajánlórendszer | A rendszer a korábbi eredmények és a felhasználó tanulási mintázata alapján javasol új témákat vagy ismétlési lehetőségeket. |
+| F12 | Adat-export és jelentéskészítés | A felhasználó le tudja tölteni saját tanulási eredményeit CSV vagy PDF formátumban. |
 
 ## 4. A felület felépítése és a technológiák kapcsolódása
 
