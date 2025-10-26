@@ -56,6 +56,8 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 
 
 ### 2.1 Felhasználói fiókkezelés
+- A rendszer támogatja a jövőbeni OAuth2 bejelentkezéseket.
+- A profilhoz tartozhat tanulási preferencia (pl. nehézségi szint, kedvenc téma szerint).
 - **Regisztráció:**  
   A felhasználó e-mail cím és jelszó megadásával új fiókot hoz létre.  
   A rendszer ellenőrzi az e-mail egyediségét és a jelszó minimális biztonsági feltételeit.  
@@ -65,6 +67,8 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
   A felhasználó módosíthatja adatait (pl. név, profilkép, preferált nyelv).  
 
 ### 2.2 Témaválasztás és tanulási folyamat
+- A rendszer képes személyre szabott tanulási útvonalat ajánlani korábbi eredmények alapján.
+- A felhasználó mentheti a kedvenc témáit, és a tananyag letölthető PDF formátumban is.
 - **Témaválasztás:**  
   A felhasználó választhat előre definiált témák közül vagy beírhat saját témát.  
 - **AI alapú tartalomgenerálás:**  
@@ -75,6 +79,9 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
   A React felület formázott módon jeleníti meg a jegyzetet és a kérdéseket.  
 
 ### 2.3 Kvízkitöltés és értékelés
+- A kvízidő korlátozható (pl. 10 perc / téma), és a rendszer figyeli a válaszidőt is.
+- Hibás válaszok esetén az AI rövid magyarázatot adhat.
+- Az eredmények alapján szintek adhatók.
 - **Kvízindítás:**  
   A felhasználó elindíthatja a kvízt a kiválasztott témához.  
 - **Kérdések kezelése:**  
@@ -86,6 +93,8 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
   Az eredmény, a dátum és a téma az adatbázisban eltárolódik.  
 
 ### 2.4 Eredmények és statisztikák
+- A statisztikai modul képes időalapú trendeket (heti/havi fejlődés) és összehasonlításokat megjeleníteni.
+- Az AI dinamikusan javasolhat gyakorló kvízeket a gyenge pontok erősítésére.
 - **Eredmények listázása:**  
   A felhasználó megtekintheti korábbi kvízeit és pontszámait.  
 - **Grafikonos megjelenítés:**  
@@ -94,6 +103,8 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
   Az AI vagy a backend algoritmus javasolhat új témákat vagy ismétlő kvízeket az eredmények alapján.  
 
 ### 2.5 Felhasználói élmény és UI
+- A UI támogatja a hozzáférhetőségi szabványokat (WCAG), például kontrasztos színek és billentyűzet-navigáció.
+- A sötét/világos mód automatikusan igazodhat a rendszerbeállításokhoz.
 - **Reszponzív design:**  
   Mobilon és asztali gépen is jól használható.  
 - **Gamifikáció:**  
@@ -102,6 +113,7 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
   Minimalista, modern felhasználói élmény, sötét/világos mód támogatással.  
 
 ### 2.6 Biztonság és adatvédelem
+- A JWT tokenek időkorlátosak és automatikusan megújíthatók refresh tokennel.
 - Jelszavak **bcrypt** algoritmussal kerülnek titkosításra.  
 - Az API kommunikáció **HTTPS** protokollon keresztül történik.    
 ---
@@ -110,6 +122,7 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 
 A **Study Buddy** egy többtechnológiás, AI-alapú tanulást segítő webalkalmazás, amely React, Express és Django technológiák integrálásával biztosítja a személyre szabott tanulási élményt.  
 A rendszer automatizáltan generál tananyagot és kvízeket, értékeli a teljesítményt, és statisztikai visszajelzéseket ad, ezáltal támogatva a hatékony és motivált tanulást.
+A rendszer jövőbeli bővítési iránya lehet mobilalkalmazás, közösségi funkciók. A cél egy önfejlesztő ökoszisztéma, amely adaptív módon segíti a tanulást.
 
 ## 4. Fogalomtár
 
