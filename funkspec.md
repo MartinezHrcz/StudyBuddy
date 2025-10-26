@@ -7,7 +7,8 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
 ### 1.1 Architektúra áttekintés: 
 1. **Frontend (React.js)**
    - Felhasználói felület, amely a tanulók interakcióit biztosítja.  
-   - Kommunikál az Express.js rétegen keresztül a backend API-val.  
+   - Kommunikál az Express.js rétegen keresztül a backend API-val.
+   - A frontend TypeScript támogatással is fejleszthető a típushibák csökkentése érdekében.
    - Funkciók:
      - Bejelentkezés / Regisztráció kezelése  
      - Jegyzetek és kvízek megjelenítése  
@@ -15,7 +16,8 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
      - Mobil- és asztali reszponzivitás  
 
 2. **Köztes réteg (Express.js)**
-   - REST API réteg, amely a frontend és a Django backend közötti kommunikációt biztosítja.  
+   - REST API réteg, amely a frontend és a Django backend közötti kommunikációt biztosítja.
+   - Az Express réteg felel a forgalomszabályozásért és a hibák naplózásáért is. A biztonságot middleware-ek garantálják.  
    - Feladatai:
      - Hitelesítési folyamat kezelése (JWT token)  
      - Kérések továbbítása a Django szolgáltatások felé  
@@ -23,7 +25,9 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
      - Hiba- és jogosultságkezelés  
 
 3. **Backend (Python Django)**
-   - A mesterséges intelligencia és az adatkezelés fő logikai rétege.  
+   - A mesterséges intelligencia és az adatkezelés fő logikai rétege.
+   - A Django REST Framework (DRF) biztosítja az API endpointokat.
+   - Az AI hívások cache-elhetők Redis-szel, hogy csökkentsék az API hívások költségét és idejét.  
    - Feladatai:
      - Kvízkérdések és jegyzetek generálása AI segítségével  
      - Felhasználói adatok, témák és eredmények tárolása  
@@ -31,11 +35,13 @@ A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és
    - Az AI feldolgozás az **OpenAI API** (vagy más AI szolgáltatás) felhasználásával történik.  
 
 4. **Adatbázis**
-   - Tárolja a felhasználói fiókokat, témaköröket, generált kvízeket, eredményeket és statisztikákat.  
+   - Tárolja a felhasználói fiókokat, témaköröket, generált kvízeket, eredményeket és statisztikákat.
+   - Az adatbázisban indexelés és foreign key kapcsolatok segítik a gyors lekérdezéseket.  
    - Javasolt adatbázis: **PostgreSQL**.  
    - Kapcsolat a Django ORM-en (Object Relational Mapper) keresztül.  
 
 5. **Külső szolgáltatások**
+   - A külső API-hívásokhoz API-kulcs-menedzsment szükséges (pl. .env konfigurációval).
    - **OpenAI API**: természetes nyelvi feldolgozáshoz, jegyzetek és kérdések generálásához.  
    - **AI modell** paraméterezhető a téma, nehézségi szint és válaszhossz alapján.  
 
