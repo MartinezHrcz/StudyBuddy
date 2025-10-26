@@ -2,7 +2,7 @@ Study buddy Funkcionális specifikáció
 
 ## 1. Technológia architektúra:
 
-A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és Python-alapú technológiákat használ a skálázhatóság, a gyors fejlesztés és a mesterséges intelligencia-integráció érdekében.
+A Study Buddy egy háromrétegű webes alkalmazás, amely modern JavaScript- és Python-alapú technológiákat használ a skálázhatóság, a gyors fejlesztés és a mesterséges intelligencia-integráció érdekében. A rendszer célja a könnyű bővíthetőség, így a komponensek laza csatolással kommunikálnak egymással (pl. REST API-n keresztül). A mikroszerviz jellegű architektúra jövőbeni fejlesztéseket is támogat, például külön AI-szolgáltatás vagy statisztikai modul integrálását.
 
 ### 1.1 Architektúra áttekintés: 
 1. **Frontend (React.js)**
