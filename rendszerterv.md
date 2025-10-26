@@ -78,7 +78,10 @@ A rendszer célja továbbá:
 - Eredmények megtekintése és összehasonlítása  
 - Saját fejlődés grafikonos megjelenítése  
 - Profiladatok szerkesztése  
-- Újratanulás vagy ismétlés indítása  
+- Újratanulás vagy ismétlés indítása
+- Közösségi megosztás (pl. tananyag export vagy linkmegosztás)
+- AI-asszisztens chat a téma elmélyítésére
+- Értesítések (push/email)  
 
 ## 6. Felülettel szemben támasztott követelmények
 
@@ -87,7 +90,10 @@ A rendszer célja továbbá:
 - Gyors betöltési idő (< 2 másodperc).  
 - Reszponzív elrendezés (mobil, tablet, desktop).  
 - Akadálymentesített (WCAG-kompatibilis) design.  
-- Dark / Light mód támogatása.  
+- Dark / Light mód támogatása.
+- A Dark / Light mód automatikus szinkronizálása a rendszerbeállítással  
+- A UI komponensek újrahasznosíthatók
+- Az animációkhoz Framer Motion használható.
 
 
 ## 7. Adatbázis terv
