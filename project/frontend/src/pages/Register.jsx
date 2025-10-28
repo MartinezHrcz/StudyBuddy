@@ -1,40 +1,35 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Login({ onLogin }) {
+export default function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  async function handleLogin() {
+  async function handleRegister() {
     try {
-      const res = await fetch('http://localhost:8000/api/token/', {
+      const res = await fetch('http://localhost:8000/api/register/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username, password })
       });
 
       const data = await res.json();
 
       if (res.ok) {
-        localStorage.setItem('access_token', data.access);
-        localStorage.setItem('refresh_token', data.refresh);
-
-        
-        if (onLogin) onLogin();
-
-        navigate('/main');
+        alert('Registration successful! Please login.');
+        navigate('/login');
       } else {
-        alert(`Login failed: ${JSON.stringify(data)}`);
+        alert(JSON.stringify(data));
       }
     } catch (err) {
-      alert('Error: ' + err.message);
+      alert('Error: ' + err);
     }
   }
 
   return (
     <div>
-      <h2>Login</h2>
+      <h2>Register</h2>
       <input
         placeholder="Username"
         value={username}
@@ -46,10 +41,7 @@ export default function Login({ onLogin }) {
         value={password}
         onChange={e => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Login</button>
-      <p>
-        Don't have an account? <a href="/register">Register</a>
-      </p>
+      <button onClick={handleRegister}>Register</button>
     </div>
   );
 }
