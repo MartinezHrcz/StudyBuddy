@@ -33,23 +33,38 @@ export default function Login({ onLogin }) {
   }
 
   return (
-    <div>
-      <h2>Login</h2>
-      <input
-        placeholder="Username"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-      <p>
-        Don't have an account? <a href="/register">Register</a>
-      </p>
-    </div>
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+          <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+              <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
+                  Login
+              </h2>
+              <div className="space-y-4">
+                  <input
+                      placeholder="Username"
+                      value={username}
+                      onChange={e => setUsername(e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                  <input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+
+                  />
+                  <button onClick={handleLogin}
+                          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+                      Login
+                  </button>
+                  <p className="text-center text-gray-600 mt-4">
+                      Don't have an account?{" "}
+                      <a href="/register" className="text-blue-600 hover:underline">
+                          Register
+                      </a>
+                  </p>
+              </div>
+          </div>
+      </div>
   );
 }
