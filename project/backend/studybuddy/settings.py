@@ -79,7 +79,7 @@ REST_FRAMEWORK = {
     ),
 }
 
-from rest_framework.settings import api_settings  # noqa: E402
+from rest_framework.settings import api_settings
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
@@ -92,5 +92,4 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
 ]
 
-# read openai key from env if needed by backend integration
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', 'sk-REPLACE_ME')
