@@ -39,26 +39,43 @@ export default function Quiz() {
   }
 
   return (
-    <div>
-      <h2>Quiz: {quiz.topic}</h2>
-      {quiz.questions.map(q => (
-        <div key={q.id} style={{ marginBottom: 12 }}>
-          <div>{q.prompt}</div>
-          <div>
-            {q.choices.map(c => (
-              <label key={c.id} style={{ display: 'block' }}>
-                <input
-                  type='radio'
-                  name={String(q.id)}
-                  onChange={() => pick(q.id, c.id)}
-                />
-                {c.text}
-              </label>
-            ))}
+      <div className="min-h-screen flex flex-col items-center pt-16 bg-gray-100">
+          <div className="w-full max-w-3xl px-4">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
+                  Quiz: {quiz.topic}
+              </h2>
+              <div className="space-y-6">
+                  {quiz.questions.map((q) => (
+                      <div
+                          key={q.id}
+                          className="bg-white shadow rounded-lg p-4 space-y-3"
+                      >
+                          <div className="text-gray-800 font-medium">{q.prompt}</div>
+                          <div className="space-y-2">
+                              {q.choices.map((c) => (
+                                  <label
+                                      key={c.id}
+                                      className="flex items-center space-x-2 cursor-pointer"
+                                  >
+                                      <input
+                                          type="radio"
+                                          name={String(q.id)}
+                                          onChange={() => pick(q.id, c.id)}
+                                          className="form-radio text-blue-600"
+                                      />
+                                      <span className="text-gray-700">{c.text}</span>
+                                  </label>
+                              ))}
+                          </div>
+                      </div>
+                  ))}
+              </div>
+
+              <button onClick={submit}
+                      className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                  Submit
+              </button>
           </div>
-        </div>
-      ))}
-      <button onClick={submit}>Submit</button>
     </div>
   );
 }
