@@ -52,59 +52,37 @@ export default function Main() {
   }
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '40px' }}>
-      <h2>Choose a topic</h2>
+      <div className="min-h-screen flex flex-col items-center pt-16 bg-gray-100">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
+              Choose a topic
+          </h2>
+          <div className="flex space-x-4 mb-8">
+              <button
+                  onClick={goToProfile}
+                  className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+              >
+                  Profilom
+              </button>
+              <button
+                  onClick={logout}
+                  className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
+              >
+                  Kijelentkezés
+              </button>
+          </div>
 
-      <div style={{ marginBottom: '20px' }}>
-        <button
-          onClick={goToProfile}
-          style={{
-            marginRight: '10px',
-            padding: '8px 16px',
-            backgroundColor: '#007bff',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
-        >
-          Profilom
-        </button>
-
-        <button
-          onClick={logout}
-          style={{
-            padding: '8px 16px',
-            backgroundColor: '#dc3545',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}
-        >
-          Kijelentkezés
-        </button>
+          <ul className="flex flex-col items-center space-y-4">
+              {topics.map((t) => (
+                  <li key={t} className="w-full max-w-xs">
+                      <button
+                          onClick={() => start(t)}
+                          className="w-full px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
+                      >
+                          {t}
+                      </button>
+                  </li>
+              ))}
+          </ul>
       </div>
-
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {topics.map(t => (
-          <li key={t} style={{ margin: '10px 0' }}>
-            <button
-              onClick={() => start(t)}
-              style={{
-                padding: '10px 20px',
-                backgroundColor: '#28a745',
-                color: 'white',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer'
-              }}
-            >
-              {t}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }
