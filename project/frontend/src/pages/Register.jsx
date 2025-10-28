@@ -28,20 +28,45 @@ export default function Register() {
   }
 
   return (
-    <div>
-      <h2>Register</h2>
-      <input
-        placeholder="Username"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <button onClick={handleRegister}>Register</button>
-    </div>
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+          <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+              <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
+                  Register
+              </h2>
+
+              <div className="space-y-4">
+                  <input
+                      placeholder="Username"
+                      value={username}
+                      onChange={e => setUsername(e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+
+                  {/* Password */}
+                  <input
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+
+                  {/* Register Button */}
+                  <button
+                      onClick={handleRegister}
+                      className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+                  >
+                      Register
+                  </button>
+              </div>
+
+              <p className="text-center text-gray-600 mt-4">
+                  Already have an account?{" "}
+                  <a href="/login" className="text-blue-600 hover:underline">
+                      Login
+                  </a>
+              </p>
+          </div>
+      </div>
   );
 }
