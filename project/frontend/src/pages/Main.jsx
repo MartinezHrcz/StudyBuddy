@@ -53,36 +53,42 @@ export default function Main() {
 
   return (
       <div className="min-h-screen flex flex-col items-center pt-16 bg-gray-100">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
-              Choose a topic
-          </h2>
-          <div className="flex space-x-4 mb-8">
-              <button
-                  onClick={goToProfile}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-              >
-                  Profilom
-              </button>
-              <button
-                  onClick={logout}
-                  className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
-              >
-                  Kijelentkezés
-              </button>
-          </div>
+          <div className="bg-gray-200 p-10 border rounded-lg border-gray-600">
+              <h2 className="text-4xl uppercase font-bold text-gray-800 mb-8 text-center">
+                  Study Buddy
+              </h2>
+              <div className="flex flex-col space-y-2 mb-8 ">
+                  <button
+                      onClick={goToProfile}
+                      className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+                  >
+                      My profile
+                  </button>
+                  <button
+                      onClick={logout}
+                      className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
+                  >
+                      Logout
+                  </button>
+              </div>
 
-          <ul className="flex flex-col items-center space-y-4">
-              {topics.map((t) => (
-                  <li key={t} className="w-full max-w-xs">
-                      <button
-                          onClick={() => start(t)}
-                          className="w-full px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
-                      >
-                          {t}
-                      </button>
-                  </li>
-              ))}
-          </ul>
+              <h2 className="text-4xl uppercase font-bold text-gray-800 mb-8 text-center">
+                  Topics
+              </h2>
+
+              <ul className="flex flex-col items-center space-y-4">
+                  {topics.map((t) => (
+                      <li key={t} className="w-full max-w-xs">
+                          <button
+                              onClick={() => start(t)}
+                              className="w-full px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
+                          >
+                              {t}
+                          </button>
+                      </li>
+                  ))}
+              </ul>
+          </div>
       </div>
   );
 }
