@@ -15,7 +15,13 @@ export default function Profile() {
       .then(setProfile);
   }, []);
 
-  if (!profile) return <div>Login to see your profile</div>;
+    if (!profile) {
+        return (
+            <div className="min-h-screen flex justify-center items-center bg-gray-100">
+                <span className="text-lg text-gray-700">Loading profile...</span>
+            </div>
+        );
+    }
 
   return (
     <div className="min-h-screen flex justify-center items-start pt-16 bg-gray-100">
