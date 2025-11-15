@@ -72,8 +72,8 @@ export default function Main() {
                   </button>
               </div>
 
-              <h2 className="text-4xl uppercase font-bold text-gray-800 mb-8 text-center">
-                  Topics
+              <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
+                  Select a topic
               </h2>
 
               <ul className="flex flex-col items-center space-y-4">
@@ -81,7 +81,7 @@ export default function Main() {
                       <li key={t} className="w-full max-w-xs">
                           <button
                               onClick={() => start(t)}
-                              className="w-full px-6 py-3 bg-green-600 text-white rounded-md hover:bg-green-700 transition"
+                              className="w-full px-5 py-4 bg-green-500 text-white rounded-lg text-lg font-medium hover:bg-green-600 transition"
                           >
                               {t}
                           </button>
