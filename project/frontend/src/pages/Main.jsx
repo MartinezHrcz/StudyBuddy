@@ -52,8 +52,8 @@ export default function Main() {
   }
 
   return (
-      <div className="min-h-screen flex flex-col items-center pt-16 bg-gray-100">
-          <div className="bg-gray-200 p-10 border rounded-lg border-gray-600">
+      <div className="min-h-screen bg-gradient-to-br from-gray-100 to-blue-500 flex items-center justify-center py-12 px-4">
+          <div className="bg-white shadow-xl rounded-3xl w-full max-w-lg p-8 md:p-12">
               <h2 className="text-4xl uppercase font-bold text-gray-800 mb-8 text-center">
                   Study Buddy
               </h2>
