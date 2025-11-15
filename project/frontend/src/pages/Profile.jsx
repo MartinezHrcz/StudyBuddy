@@ -30,28 +30,28 @@ export default function Profile() {
           {profile.username}'s Profile
         </h2>
 
-        <div className="space-y-4">
-          <div className="flex justify-between border-b pb-2">
-            <span className="text-gray-600">Quizzes taken:</span>
-            <span className="font-medium text-gray-800">
+      <div className="divide-y divide-gray-200">
+          <div className="flex justify-between py-4">
+            <span className="text-gray-700 font-medium">Quizzes taken:</span>
+            <span className="text-gray-900 font-semibold">
               {profile.total_quizzes}
             </span>
           </div>
-          <div className="flex justify-between border-b pb-2">
-            <span className="text-gray-600">Total questions:</span>
-            <span className="font-medium text-gray-800">
+          <div className="flex justify-between py-4">
+            <span className="text-gray-700 font-medium">Total questions:</span>
+            <span className="text-gray-900 font-semibold">
               {profile.total_questions}
             </span>
           </div>
-          <div className="flex justify-between border-b pb-2">
-            <span className="text-gray-600">Correct answers:</span>
-            <span className="font-medium text-gray-800">
+          <div className="flex justify-between py-4">
+            <span className="text-gray-700 font-medium">Correct answers:</span>
+            <span className="text-gray-900 font-semibold">
               {profile.total_correct}
             </span>
           </div>
-          <div className="flex justify-between">
-            <span className="text-gray-600">Accuracy:</span>
-            <span className="font-medium text-gray-800">
+          <div className="flex justify-between py-4">
+            <span className="text-gray-700 font-medium">Accuracy:</span>
+            <span className="text-gray-900 font-semibold">
               {profile.accuracy_percent}%
             </span>
           </div>
