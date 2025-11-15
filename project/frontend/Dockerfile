@@ -14,4 +14,6 @@ COPY . .
 
 RUN npm rebuild rollup --force
 
+EXPOSE 5173
+
 CMD ["npm", "run", "dev", "--", "--host"]
