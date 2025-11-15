@@ -24,10 +24,10 @@ export default function Profile() {
     }
 
   return (
-    <div className="min-h-screen flex justify-center items-start pt-16 bg-gray-100">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
-          {profile.username} — Profile
+    <div className="min-h-screen flex justify-center items-start pt-16 bg-gradient-to-br from-gray-100 to-blue-100">
+      <div className="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-xl">
+        <h2 className="text-3xl font-extrabold text-center text-blue-600 mb-8 tracking-wide">
+          {profile.username}'s Profile
         </h2>
 
         <div className="space-y-4">
@@ -55,6 +55,15 @@ export default function Profile() {
               {profile.accuracy_percent}%
             </span>
           </div>
+            <div className="mt-10 flex justify-center">
+                <button
+                    onClick={() => navigate("/main")}
+                    className="px-5 py-3 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition"
+                >
+                    ← Back to Home
+                </button>
+            </div>
+
         </div>
       </div>
     </div>
