@@ -24,9 +24,9 @@ export default function App() {
         <Route path="*" element={token ? <Navigate to="/main" /> : <Navigate to="/login" />} />
         <Route path="/login" element={<Login onLogin={() => setToken(localStorage.getItem('access_token'))} />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/main" element={token ? <Main /> : <Navigate to="/login" />} />
-        <Route path="/quiz/:id" element={token ? <Quiz /> : <Navigate to="/login" />} />
-        <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
+        <Route path="/main" element={!token ? <Main /> : <Navigate to="/login" />} />
+        <Route path="/quiz/:id" element={!token ? <Quiz /> : <Navigate to="/login" />} />
+        <Route path="/profile" element={!token ? <Profile /> : <Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
   );
