@@ -54,19 +54,19 @@ export default function Main() {
   return (
       <div className="min-h-screen bg-gradient-to-br from-gray-100 to-blue-500 flex items-center justify-center py-12 px-4">
           <div className="bg-white shadow-xl rounded-3xl w-full max-w-lg p-8 md:p-12">
-              <h2 className="text-4xl uppercase font-bold text-gray-800 mb-8 text-center">
+              <h1 className="text-5xl font-extrabold text-center text-blue-600 mb-10 tracking-wide">
                   Study Buddy
-              </h2>
-              <div className="flex flex-col space-y-2 mb-8 ">
+              </h1>
+              <div className="flex flex-col sm:flex-row justify-between mb-10">
                   <button
                       onClick={goToProfile}
-                      className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+                      className="flex-1 mx-1 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
                   >
                       My profile
                   </button>
                   <button
                       onClick={logout}
-                      className="px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition"
+                      className="flex-1 mx-1 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
                   >
                       Logout
                   </button>
