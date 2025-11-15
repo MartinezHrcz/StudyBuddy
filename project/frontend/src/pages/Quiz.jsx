@@ -45,24 +45,26 @@ export default function Quiz() {
                   <h2 className="text-3xl font-extrabold text-blue-600">
                   Quiz: {quiz.topic}
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-8">
                   {quiz.questions.map((q) => (
                       <div
                           key={q.id}
-                          className="bg-white shadow rounded-lg p-4 space-y-3"
+                          className="p-6 bg-gray-50 rounded-xl shadow-sm"
                       >
-                          <div className="text-gray-800 font-medium">{q.prompt}</div>
+                          <div className="font-semibold text-lg text-gray-800 mb-4">
+                              {q.prompt}
+                          </div>
                           <div className="space-y-2">
                               {q.choices.map((c) => (
                                   <label
                                       key={c.id}
-                                      className="flex items-center space-x-2 cursor-pointer"
+                                      className="flex items-center gap-3 cursor-pointer p-2 rounded hover:bg-gray-100 transition"
                                   >
                                       <input
                                           type="radio"
                                           name={String(q.id)}
                                           onChange={() => pick(q.id, c.id)}
-                                          className="form-radio text-blue-600"
+                                          className="form-radio text-blue-500"
                                       />
                                       <span className="text-gray-700">{c.text}</span>
                                   </label>
@@ -73,7 +75,7 @@ export default function Quiz() {
               </div>
 
               <button onClick={submit}
-                      className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                      className="mt-10 w-full py-4 rounded-lg font-bold text-lg transition">
                   Submit
               </button>
           </div>
