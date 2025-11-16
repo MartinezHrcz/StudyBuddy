@@ -241,6 +241,7 @@ Szimulálja egy valódi felhasználó útját az alkalmazáson keresztül, ellen
 
 ### 12.4. Biztonsági Tesztek
 * **Jogosultság-Ellenőrzés:** Teszteli, hogy egy nem hitelesített felhasználó hozzáfér-e a védett API endpointokhoz (pl. `/api/profil`).
+* **Input Validáció:** Teszteli az XSS (Cross-Site Scripting) és SQL Injection elleni védekezést a bemeneti mezőkben.
 
 ## 13. Jövőbeli fejlesztési lehetőségek
 
