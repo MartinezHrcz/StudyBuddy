@@ -243,6 +243,8 @@ Szimulálja egy valódi felhasználó útját az alkalmazáson keresztül, ellen
 * **Jogosultság-Ellenőrzés:** Teszteli, hogy egy nem hitelesített felhasználó hozzáfér-e a védett API endpointokhoz (pl. `/api/profil`).
 * **Input Validáció:** Teszteli az XSS (Cross-Site Scripting) és SQL Injection elleni védekezést a bemeneti mezőkben.
 
+A tesztek futtatása a **folyamatos integráció (CI)** során automatizálható, így minden kódbázisba történő változtatás után ellenőrzésre kerül a rendszer stabilitása.
+
 ## 13. Jövőbeli fejlesztési lehetőségek
 
 - **Többnyelvű támogatás** (angol, német, magyar).  
