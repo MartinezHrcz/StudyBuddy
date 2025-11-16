@@ -119,10 +119,13 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 
 
 
-### 2.6 Biztonság és adatvédelem
-- A JWT tokenek időkorlátosak és automatikusan megújíthatók refresh tokennel.
-- Jelszavak **bcrypt** algoritmussal kerülnek titkosításra.  
-- Az API kommunikáció **HTTPS** protokollon keresztül történik.    
+### 2.6 Biztonság
+A biztonság a tervezés fontos része:
+* **Jelszó-titkosítás:** A jelszavak **bcrypt** algoritmussal hashelve tárolódnak.
+* **Biztonságos Kommunikáció:** Az API kommunikáció teljes egészében **HTTPS** protokollon keresztül történik, ami biztosítja az adatok titkosítását átvitel közben.
+* **Hitelesítés:** A **JWT tokenek** használata időkorlátos hozzáférést biztosít, refresh tokenekkel az automatikus megújításhoz.
+
+* A Study Buddy így egy **hatékony, adaptív és biztonságos** platformot nyújt, amely a legújabb webes és AI technológiák integrálásával támogatja a tanulók motivált és eredményes felkészülését. 
 ---
 
 ## 3. Összefoglalás:
