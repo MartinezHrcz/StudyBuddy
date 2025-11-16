@@ -239,6 +239,9 @@ Szimulálja egy valódi felhasználó útját az alkalmazáson keresztül, ellen
     * *Példa forgatókönyv:* Egy felhasználó regisztrál, kiválasztja a "Kvantumfizika" témát, elindítja a kvíz generálását, kitölti a kvízt és ellenőrzi, hogy az eredmény megjelenik-e a statisztikai grafikonon.
     * Ez teszteli a **React UI**, az **Express API gateway** és a **Django/PostgreSQL Backend** teljes láncolatát.
 
+### 12.4. Biztonsági Tesztek
+* **Jogosultság-Ellenőrzés:** Teszteli, hogy egy nem hitelesített felhasználó hozzáfér-e a védett API endpointokhoz (pl. `/api/profil`).
+
 ## 13. Jövőbeli fejlesztési lehetőségek
 
 - **Többnyelvű támogatás** (angol, német, magyar).  
