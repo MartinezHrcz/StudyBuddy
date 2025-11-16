@@ -64,7 +64,10 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - **Bejelentkezés:**  
   A felhasználó hitelesítése JWT tokennel történik.  
 - **Profil megtekintése / szerkesztése:**  
-  A felhasználó módosíthatja adatait (pl. név, profilkép, preferált nyelv).  
+  - A felhasználó módosíthatja adatait (pl. név, profilkép, preferált nyelv).
+  - A felhasználónak van lehetősége a jelszóváltoztatásra.
+
+  ![Jelszó változtatás](./Ábrák/jelszovalt.svg)
 
 ### 2.2 Témaválasztás és tanulási folyamat
 - A rendszer képes személyre szabott tanulási útvonalat ajánlani korábbi eredmények alapján.
@@ -112,7 +115,9 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - **Gamifikáció:**  
   A felhasználó szinteket vagy teljesítményértékeket kaphat.  
 - **Egyszerű, letisztult interfész:**  
-  Minimalista, modern felhasználói élmény, sötét/világos mód támogatással.  
+  Minimalista, modern felhasználói élmény, sötét/világos mód támogatással.
+
+
 
 ### 2.6 Biztonság és adatvédelem
 - A JWT tokenek időkorlátosak és automatikusan megújíthatók refresh tokennel.

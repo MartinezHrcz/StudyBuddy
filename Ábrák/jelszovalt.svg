@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="542pt" height="578pt" viewBox="0.00 0.00 542.00 578.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 573.6)">
+<title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-573.6 537.77,-573.6 537.77,4 -4,4"/>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#0066ff" stroke="black" points="317.79,-569.6 147.43,-551.6 317.79,-533.6 488.15,-551.6 317.79,-569.6"/>
+<polyline fill="none" stroke="black" points="159.36,-552.86 159.36,-550.34"/>
+<polyline fill="none" stroke="black" points="305.86,-534.86 329.72,-534.86"/>
+<polyline fill="none" stroke="black" points="476.22,-550.34 476.22,-552.86"/>
+<polyline fill="none" stroke="black" points="329.72,-568.34 305.86,-568.34"/>
+<text xml:space="preserve" text-anchor="middle" x="317.79" y="-547.4" font-family="Inter" font-size="14.00">Kezdés (Jelszóváltás gomb)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#e0f2f1" stroke="black" points="428.83,-496.6 206.75,-496.6 206.75,-455 428.83,-455 428.83,-496.6"/>
+<text xml:space="preserve" text-anchor="middle" x="317.79" y="-480" font-family="Inter" font-size="14.00">Felhasználói bemenet:</text>
+<text xml:space="preserve" text-anchor="middle" x="317.79" y="-463.2" font-family="Inter" font-size="14.00">(Régi jelszó, Új jelszó, Megerősítés)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M317.79,-533.11C317.79,-525.75 317.79,-516.95 317.79,-508.52"/>
+<polygon fill="black" stroke="black" points="321.29,-508.55 317.79,-498.55 314.29,-508.55 321.29,-508.55"/>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#fff9c4" stroke="black" points="140.79,-418 0,-376.4 140.79,-334.8 281.58,-376.4 140.79,-418"/>
+<text xml:space="preserve" text-anchor="middle" x="140.79" y="-380.6" font-family="Inter" font-size="14.00">Adatellenőrzés:</text>
+<text xml:space="preserve" text-anchor="middle" x="140.79" y="-363.8" font-family="Inter" font-size="14.00">Két új jelszó egyezik?</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M281.12,-454.62C257.4,-441.57 226.01,-424.3 198.94,-409.4"/>
+<polygon fill="black" stroke="black" points="200.95,-406.51 190.51,-404.76 197.58,-412.65 200.95,-406.51"/>
+</g>
+<!-- E -->
+<g id="node4" class="node">
+<title>E</title>
+<polygon fill="#ffccbc" stroke="black" points="200.72,-282 12.86,-282 12.86,-240.4 200.72,-240.4 200.72,-282"/>
+<text xml:space="preserve" text-anchor="middle" x="106.79" y="-265.4" font-family="Inter" font-size="14.00">Backend/API Hívás</text>
+<text xml:space="preserve" text-anchor="middle" x="106.79" y="-248.6" font-family="Inter" font-size="14.00">(Hitelesítés és jelszófrissítés)</text>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge3" class="edge">
+<title>C-&gt;E</title>
+<path fill="none" stroke="#4caf50" stroke-width="2" d="M129.47,-337.71C125.25,-323.67 120.51,-307.88 116.46,-294.38"/>
+<polygon fill="#4caf50" stroke="#4caf50" stroke-width="2" points="119.92,-293.74 113.69,-285.17 113.21,-295.76 119.92,-293.74"/>
+<text xml:space="preserve" text-anchor="middle" x="135.21" y="-304.2" font-family="Inter" font-size="14.00">Igen</text>
+</g>
+<!-- D -->
+<g id="node7" class="node">
+<title>D</title>
+<polygon fill="#ffcdd2" stroke="black" points="406.89,-282 218.69,-282 218.69,-240.4 406.89,-240.4 406.89,-282"/>
+<text xml:space="preserve" text-anchor="middle" x="312.79" y="-265.4" font-family="Inter" font-size="14.00">Hiba: Jelszavak nem egyeznek</text>
+<text xml:space="preserve" text-anchor="middle" x="312.79" y="-248.6" font-family="Inter" font-size="14.00">/ Üres mező</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge4" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#f44336" stroke-width="2" d="M183.75,-347.13C210.48,-329.54 244.68,-307.03 271.16,-289.6"/>
+<polygon fill="#f44336" stroke="#f44336" stroke-width="2" points="273.03,-292.56 279.46,-284.14 269.18,-286.71 273.03,-292.56"/>
+<text xml:space="preserve" text-anchor="middle" x="265.85" y="-304.2" font-family="Inter" font-size="14.00">Nem</text>
+</g>
+<!-- F -->
+<g id="node5" class="node">
+<title>F</title>
+<polygon fill="#fff9c4" stroke="black" points="182.79,-203.4 2.93,-185.4 182.79,-167.4 362.65,-185.4 182.79,-203.4"/>
+<text xml:space="preserve" text-anchor="middle" x="182.79" y="-181.2" font-family="Inter" font-size="14.00">API válasz: Frissítés sikeres?</text>
+</g>
+<!-- E&#45;&gt;F -->
+<g id="edge6" class="edge">
+<title>E-&gt;F</title>
+<path fill="none" stroke="black" d="M127.56,-240.03C137.17,-230.7 148.65,-219.55 158.65,-209.84"/>
+<polygon fill="black" stroke="black" points="160.8,-212.63 165.54,-203.15 155.93,-207.61 160.8,-212.63"/>
+</g>
+<!-- G -->
+<g id="node6" class="node">
+<title>G</title>
+<polygon fill="#c8e6c9" stroke="black" points="299.06,-111.8 66.52,-111.8 66.52,-75.8 299.06,-75.8 299.06,-111.8"/>
+<text xml:space="preserve" text-anchor="middle" x="182.79" y="-89.6" font-family="Inter" font-size="14.00">Siker: Jelszó sikeresen megváltoztatva</text>
+</g>
+<!-- F&#45;&gt;G -->
+<g id="edge7" class="edge">
+<title>F-&gt;G</title>
+<path fill="none" stroke="#4caf50" stroke-width="2" d="M182.79,-167.12C182.79,-155.1 182.79,-138.76 182.79,-124.65"/>
+<polygon fill="#4caf50" stroke="#4caf50" stroke-width="2" points="186.29,-125.05 182.79,-115.05 179.29,-125.05 186.29,-125.05"/>
+<text xml:space="preserve" text-anchor="middle" x="195.23" y="-136.8" font-family="Inter" font-size="14.00">Igen</text>
+</g>
+<!-- H -->
+<g id="node8" class="node">
+<title>H</title>
+<polygon fill="#ffcdd2" stroke="black" points="508.89,-114.6 346.69,-114.6 346.69,-73 508.89,-73 508.89,-114.6"/>
+<text xml:space="preserve" text-anchor="middle" x="427.79" y="-98" font-family="Inter" font-size="14.00">Hiba: API hiba</text>
+<text xml:space="preserve" text-anchor="middle" x="427.79" y="-81.2" font-family="Inter" font-size="14.00">(Pl. Régi jelszó helytelen)</text>
+</g>
+<!-- F&#45;&gt;H -->
+<g id="edge8" class="edge">
+<title>F-&gt;H</title>
+<path fill="none" stroke="#f44336" stroke-width="2" d="M220.27,-170.69C257.47,-157.09 315.32,-135.93 360.5,-119.41"/>
+<polygon fill="#f44336" stroke="#f44336" stroke-width="2" points="361.55,-122.75 369.74,-116.03 359.15,-116.18 361.55,-122.75"/>
+<text xml:space="preserve" text-anchor="middle" x="333.57" y="-136.8" font-family="Inter" font-size="14.00">Nem</text>
+</g>
+<!-- I -->
+<g id="node9" class="node">
+<title>I</title>
+<polygon fill="#b2ebf2" stroke="black" points="182.79,-36 137.6,-18 182.79,0 227.98,-18 182.79,-36"/>
+<polyline fill="none" stroke="black" points="148.75,-22.44 148.75,-13.56"/>
+<polyline fill="none" stroke="black" points="171.64,-4.44 193.94,-4.44"/>
+<polyline fill="none" stroke="black" points="216.83,-13.56 216.83,-22.44"/>
+<polyline fill="none" stroke="black" points="193.94,-31.56 171.64,-31.56"/>
+<text xml:space="preserve" text-anchor="middle" x="182.79" y="-13.8" font-family="Inter" font-size="14.00">Vége</text>
+</g>
+<!-- G&#45;&gt;I -->
+<g id="edge10" class="edge">
+<title>G-&gt;I</title>
+<path fill="none" stroke="black" d="M182.79,-75.31C182.79,-67.04 182.79,-56.95 182.79,-47.6"/>
+<polygon fill="black" stroke="black" points="186.29,-47.88 182.79,-37.88 179.29,-47.88 186.29,-47.88"/>
+</g>
+<!-- D&#45;&gt;B -->
+<g id="edge5" class="edge">
+<title>D-&gt;B</title>
+<path fill="none" stroke="#ffcc00" stroke-width="2" d="M313.26,-282.3C314.13,-319.02 315.97,-397.26 317.02,-441.86"/>
+<polygon fill="#ffcc00" stroke="#ffcc00" stroke-width="2" points="313.51,-441.86 317.25,-451.77 320.51,-441.69 313.51,-441.86"/>
+<text xml:space="preserve" text-anchor="middle" x="361.91" y="-372.2" font-family="Inter" font-size="14.00">Újrapróbálkozás</text>
+</g>
+<!-- H&#45;&gt;B -->
+<g id="edge9" class="edge">
+<title>H-&gt;B</title>
+<path fill="none" stroke="#ffcc00" stroke-width="2" d="M433.12,-114.92C437.43,-132.98 442.79,-160.27 442.79,-184.4 442.79,-377.4 442.79,-377.4 442.79,-377.4 442.79,-409.95 416.1,-433.21 387.38,-448.82"/>
+<polygon fill="#ffcc00" stroke="#ffcc00" stroke-width="2" points="385.94,-445.63 378.6,-453.27 389.1,-451.88 385.94,-445.63"/>
+<text xml:space="preserve" text-anchor="middle" x="488.28" y="-257" font-family="Inter" font-size="14.00">Újrapróbálkozás</text>
+</g>
+</g>
+</svg>
