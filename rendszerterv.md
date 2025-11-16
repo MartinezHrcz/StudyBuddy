@@ -212,6 +212,10 @@ Az architektúra horizontálisan skálázható: a backend és az API gateway kü
 | **Teljesítményteszt** | AI hívások és válaszidő mérése | Locust, k6 |
 | **Biztonsági teszt** | Jogosultság, adatvédelem | OWASP ZAP |
 
+## Tesztelési Stratégia Részletezése
+
+A Study Buddy alkalmazás tesztelése a **tesztpiramis** elve alapján történik, a leggyakoribb, leggyorsabb **egységtesztektől** indulva a legritkább, leglassabb **E2E tesztekig**.
+
 ### 12.1. Egységteszt (Unit Tests)
 A tesztelési piramis alapja, amely a legkisebb, izolált kódrészleteket (függvényeket, metódusokat) ellenőrzi.
 * **Frontend (React/Jest):**
