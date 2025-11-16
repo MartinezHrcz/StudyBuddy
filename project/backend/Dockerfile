@@ -5,4 +5,4 @@ ENV PYTHONUNBUFFERED 1
 COPY requirements.txt /app/
 RUN pip install --upgrade pip && pip install -r requirements.txt && pip install django-cors-headers
 COPY . /app/
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python3.11", "manage.py", "runserver", "0.0.0.0:8000"]
