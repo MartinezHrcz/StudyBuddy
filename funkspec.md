@@ -84,6 +84,12 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
   ![Quizz generálás](./Ábrák/AI_api.svg)
 
 ### 2.3 Kvízkitöltés és értékelés
+**AI Alapú Tananyag-Generálás**
+* **Témaválasztás:** A felhasználó választhat előre definiált vagy saját maga által megadott témát.
+* **Tartalomgenerálás:** A Django backend az **OpenAI API** hívásával automatikusan generál:
+    * Rövid, összefoglaló **jegyzetet**.
+    * **5–10 kvízkérdést** a témához, minden kérdéshez 4 válaszlehetőséggel.
+* **Tananyag Megjelenítése:** A React frontend formázottan jeleníti meg a generált jegyzetet és a kvízt.
 - A kvízidő korlátozható (pl. 10 perc / téma), és a rendszer figyeli a válaszidőt is.
 - Hibás válaszok esetén az AI rövid magyarázatot adhat.
 - Az eredmények alapján szintek adhatók.
