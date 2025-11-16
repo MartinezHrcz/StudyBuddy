@@ -218,6 +218,10 @@ A tesztelési piramis alapja, amely a legkisebb, izolált kódrészleteket (füg
     * Ellenőrzi, hogy egy **React komponens** megfelelően renderelődik-e a kapott adatok alapján.
     * Teszteli a segédfüggvényeket (pl. dátumformázás, validálás).
     * **React Testing Library-t (RTL)** használ a felhasználói viselkedés szimulálására (pl. gombnyomás, input mező kitöltése).
+* **Backend (Django):**
+    * Teszteli a modell metódusokat (ORM).
+    * Ellenőrzi a pontszámító algoritmus helyességét.
+    * Teszteli az egyedi validátorokat és segédfüggvényeket.
 
 ## 13. Jövőbeli fejlesztési lehetőségek
 
