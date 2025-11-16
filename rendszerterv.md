@@ -229,6 +229,9 @@ Ellenőrzi, hogy a különböző komponensek vagy rétegek megfelelően működn
 * **Köztes Réteg (Express/Supertest):**
     * Teszteli, hogy a **Frontend** által küldött bejelentkezési kérés sikeresen eljut-e a **Django Backendhez**, és a **JWT token** létrejön.
     * Ellenőrzi, hogy a jogosulatlan kérések megfelelően elutasításra kerülnek-e.
+* **Backend (Django):**
+    * Teszteli az **API endpointokat** (DRF), biztosítva, hogy a kéréskezelők (Views) megfelelően kommunikáljanak az adatbázissal és a szerializálókkal.
+    * **AI Integráció Tesztelése (Mocking):** Az **OpenAI API** hívásait **mockoljuk** (szimuláljuk) integrációs teszt közben. Ez biztosítja, hogy a teszt ne kerüljön pénzbe, és ne függjön a külső szolgáltatás elérhetőségétől, miközben ellenőrzi, hogy a **Django** a várt módon dolgozza fel a beérkező AI választ.
 
 ## 13. Jövőbeli fejlesztési lehetőségek
 
