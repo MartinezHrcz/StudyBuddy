@@ -233,6 +233,12 @@ Ellenőrzi, hogy a különböző komponensek vagy rétegek megfelelően működn
     * Teszteli az **API endpointokat** (DRF), biztosítva, hogy a kéréskezelők (Views) megfelelően kommunikáljanak az adatbázissal és a szerializálókkal.
     * **AI Integráció Tesztelése (Mocking):** Az **OpenAI API** hívásait **mockoljuk** (szimuláljuk) integrációs teszt közben. Ez biztosítja, hogy a teszt ne kerüljön pénzbe, és ne függjön a külső szolgáltatás elérhetőségétől, miközben ellenőrzi, hogy a **Django** a várt módon dolgozza fel a beérkező AI választ.
 
+### 12.3. Végponttól-Végpontig Teszt (End-to-End / E2E Tests)
+Szimulálja egy valódi felhasználó útját az alkalmazáson keresztül, ellenőrizve az egész rendszert a böngészőtől az adatbázisig.
+* **Cypress/Playwright:**
+    * *Példa forgatókönyv:* Egy felhasználó regisztrál, kiválasztja a "Kvantumfizika" témát, elindítja a kvíz generálását, kitölti a kvízt és ellenőrzi, hogy az eredmény megjelenik-e a statisztikai grafikonon.
+    * Ez teszteli a **React UI**, az **Express API gateway** és a **Django/PostgreSQL Backend** teljes láncolatát.
+
 ## 13. Jövőbeli fejlesztési lehetőségek
 
 - **Többnyelvű támogatás** (angol, német, magyar).  
