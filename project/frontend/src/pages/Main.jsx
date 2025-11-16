@@ -60,13 +60,13 @@ export default function Main() {
               <div className="flex flex-col sm:flex-row justify-between mb-10">
                   <button
                       onClick={goToProfile}
-                      className="flex-1 mx-1 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+                      className="flex-1 mx-1 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-800 transition"
                   >
                       My profile
                   </button>
                   <button
                       onClick={logout}
-                      className="flex-1 mx-1 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+                      className="flex-1 mx-1 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-800 transition"
                   >
                       Logout
                   </button>
@@ -81,7 +81,7 @@ export default function Main() {
                       <li key={t} className="w-full max-w-xs">
                           <button
                               onClick={() => start(t)}
-                              className="w-full px-5 py-4 bg-green-500 text-white rounded-lg text-lg font-medium hover:bg-green-600 transition"
+                              className="w-full px-5 py-4 bg-green-500 text-white rounded-lg text-lg font-medium hover:bg-green-800 transition"
                           >
                               {t}
                           </button>
