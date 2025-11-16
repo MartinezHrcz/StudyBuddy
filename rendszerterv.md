@@ -212,6 +212,13 @@ Az architektúra horizontálisan skálázható: a backend és az API gateway kü
 | **Teljesítményteszt** | AI hívások és válaszidő mérése | Locust, k6 |
 | **Biztonsági teszt** | Jogosultság, adatvédelem | OWASP ZAP |
 
+### 12.1. Egységteszt (Unit Tests)
+A tesztelési piramis alapja, amely a legkisebb, izolált kódrészleteket (függvényeket, metódusokat) ellenőrzi.
+* **Frontend (React/Jest):**
+    * Ellenőrzi, hogy egy **React komponens** megfelelően renderelődik-e a kapott adatok alapján.
+    * Teszteli a segédfüggvényeket (pl. dátumformázás, validálás).
+    * **React Testing Library-t (RTL)** használ a felhasználói viselkedés szimulálására (pl. gombnyomás, input mező kitöltése).
+
 ## 13. Jövőbeli fejlesztési lehetőségek
 
 - **Többnyelvű támogatás** (angol, német, magyar).  
