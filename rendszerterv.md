@@ -223,6 +223,13 @@ A tesztelési piramis alapja, amely a legkisebb, izolált kódrészleteket (füg
     * Ellenőrzi a pontszámító algoritmus helyességét.
     * Teszteli az egyedi validátorokat és segédfüggvényeket.
 
+### 12.2. Integrációs Teszt (Integration Tests)
+Ellenőrzi, hogy a különböző komponensek vagy rétegek megfelelően működnek-e együtt.
+
+* **Köztes Réteg (Express/Supertest):**
+    * Teszteli, hogy a **Frontend** által küldött bejelentkezési kérés sikeresen eljut-e a **Django Backendhez**, és a **JWT token** létrejön.
+    * Ellenőrzi, hogy a jogosulatlan kérések megfelelően elutasításra kerülnek-e.
+
 ## 13. Jövőbeli fejlesztési lehetőségek
 
 - **Többnyelvű támogatás** (angol, német, magyar).  
