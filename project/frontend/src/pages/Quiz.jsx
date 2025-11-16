@@ -41,10 +41,11 @@ export default function Quiz() {
   return (
       <div className="min-h-screen flex justify-center py-16 bg-gradient-to-br from-gray-100 to-blue-100">
           <div className="w-full max-w-3xl bg-white shadow-2xl rounded-3xl px-8 py-10">
-              <div className="flex justify-between items-center mb-8">
-                  <h2 className="text-3xl font-extrabold text-blue-600">
-                  Quiz: {quiz.topic}
+
+              <h2 className="text-3xl font-extrabold text-blue-600 mb-8 text-center">
+                Quiz: {quiz.topic}
               </h2>
+
               <div className="space-y-8">
                   {quiz.questions.map((q) => (
                       <div
@@ -75,11 +76,10 @@ export default function Quiz() {
               </div>
 
               <button onClick={submit}
-                      className="mt-10 w-full py-4 rounded-lg font-bold text-lg transition">
+                      className="mt-10 w-full py-4 rounded-lg bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 transition">
                   Submit
               </button>
           </div>
       </div>
-    </div>
   );
 }

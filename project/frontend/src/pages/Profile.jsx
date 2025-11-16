@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import {useNavigate} from "react-router-dom";
 
 export default function Profile() {
   const [profile, setProfile] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch("/api/profile/", {
       headers: {
