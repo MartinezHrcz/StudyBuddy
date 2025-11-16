@@ -76,7 +76,9 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
   - egy rövid **összefoglaló jegyzetet**,  
   - és **5–10 kvízkérdést** a megadott témában.  
 - **Tananyag megjelenítése:**  
-  A React felület formázott módon jeleníti meg a jegyzetet és a kérdéseket.  
+  A React felület formázott módon jeleníti meg a jegyzetet és a kérdéseket.
+
+  ![Quizz generálás](./Ábrák/AI_api.svg)
 
 ### 2.3 Kvízkitöltés és értékelés
 - A kvízidő korlátozható (pl. 10 perc / téma), és a rendszer figyeli a válaszidőt is.
