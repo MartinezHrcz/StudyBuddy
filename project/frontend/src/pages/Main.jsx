@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const topics = ['Math', 'History', 'Physics', 'Programming', 'Biology'];
+const topics = ['Math', 'History', 'Physics', 'Programming', 'Biology', 'Geography', 'Basic-Economics', 'Chemistry'];
 
 export default function Main() {
   const navigate = useNavigate();
