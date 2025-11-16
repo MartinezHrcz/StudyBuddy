@@ -107,7 +107,9 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - A statisztikai modul képes időalapú trendeket (heti/havi fejlődés) és összehasonlításokat megjeleníteni.
 - Az AI dinamikusan javasolhat gyakorló kvízeket a gyenge pontok erősítésére.
 - **Eredmények listázása:**  
-  A felhasználó megtekintheti korábbi kvízeit és pontszámait.  
+  A felhasználó megtekintheti korábbi mentett kvízeit és pontszámait.  
+- **Eredmények összevetése más felhasználókkal**
+  A versenyszellem egy igazán lendítő hatást adhat a tanulásban, ezért a felhasználó megtekintheti hogy hanyadik a ranglistán.
 - **Grafikonos megjelenítés:**  
   A frontend vizuálisan ábrázolja a fejlődést (pl. React Chart.js vagy Recharts segítségével).  
 - **Ajánlások:**  
@@ -155,6 +157,7 @@ A rendszer jövőbeli bővítési iránya lehet mobilalkalmazás, közösségi f
 | **JWT (JSON Web Token)** | Nyílt szabvány, amely lehetővé teszi a hitelesítési információk biztonságos továbbítását a felek között **JSON** objektumként, általában a bejelentkezett felhasználók jogosultságainak ellenőrzésére használva. |
 | **Express.js** | **Node.js** alapú, gyors és minimalista webes alkalmazás keretrendszer, ami a jelen architektúrában **köztes REST API rétegként** szolgál. |
 | **React.js** | JavaScript könyvtár a **felhasználói felületek** (UI) építésére. Segíti a dinamikus, komponens alapú frontend fejlesztést. |
+| **Felhasználói felületek** | Minden olyan megjelenített ablak, file vagy oldal amely a felhasználóval való kommunikációra szolgál. |
 | **Django** | Magas szintű, Python alapú webes keretrendszer, amely a jelen architektúrában az **adatkezelési logikáért** (ORM) és az **AI hívások** kezeléséért felel. |
 | **PostgreSQL** | Objektum-relációs adatbázis-kezelő rendszer, amelyet a felhasználói adatok, kvízek és statisztikák megbízható tárolására javasol az architektúra. |
 | **ORM (Object Relational Mapper)** | **(Django esetében)** Egy olyan programozási technika, amely lehetővé teszi az adatbázis adatainak és lekérdezéseinek kezelését az alkalmazás programozási nyelve (Python) objektumain keresztül SQL helyett. |
