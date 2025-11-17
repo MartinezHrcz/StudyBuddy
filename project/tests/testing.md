@@ -21,3 +21,11 @@
 | QUIZ-02  | POST `/generate/`             | topic hiányzik                      | 400 Bad Request             | 400 Bad Request | Sikeres       |
 | QUIZ-03  | POST `/generate/`             | token hiányzik                      | 401 Unauthorized            | 401 Unauthorized | Sikeres       |
 | QUIZ-04  | Mockolt AI rossz formátum     | mock: invalid JSON                  | 500 Server Error            | 500 Server Error | Sikeres       |
+
+### Quiz lekérés
+
+| Teszt ID | Metódus                  | Bemenet            | Várt eredmény     | Kapott eredmény | Állapot |
+| -------- | ------------------------ | ------------------ | ----------------- | --------------- | ------- |
+| QUIZ-05  | GET `/api/quizzes/{id}/` | létező quiz        | 200 OK + kérdések | 200 OK | Sikeres       |
+| QUIZ-06  | GET `/api/quizzes/999/`  | nem létező quiz ID | 404 Not Found     | 404 Not Found | Sikeres       |
+| QUIZ-07  | GET `/api/quizzes/{id}/` | nincs token        | 401 Unauthorized  | 401 Unauthorized | Sikeres       |
