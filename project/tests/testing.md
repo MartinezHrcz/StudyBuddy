@@ -29,3 +29,13 @@
 | QUIZ-05  | GET `/api/quizzes/{id}/` | létező quiz        | 200 OK + kérdések | 200 OK | Sikeres       |
 | QUIZ-06  | GET `/api/quizzes/999/`  | nem létező quiz ID | 404 Not Found     | 404 Not Found | Sikeres       |
 | QUIZ-07  | GET `/api/quizzes/{id}/` | nincs token        | 401 Unauthorized  | 401 Unauthorized | Sikeres       |
+
+### Quiz kitöltés
+
+| Teszt ID | Metódus         | Bemenet           | Várt eredmény                   | Kapott eredmény | Állapot |
+| -------- | --------------- | ----------------- | ------------------------------- | --------------- | ------- |
+| QUIZ-08  | POST `/submit/` | helyes válaszok   | 200 OK + `correct=X`, `total=Y` | 200 OK | Sikeres       |
+| QUIZ-09  | POST `/submit/` | hibás válasz ID-k | 200 OK, correct kevesebb        | 200 OK | Sikeres       |
+| QUIZ-10  | POST `/submit/` | üres `answers`    | 200 OK, correct=0               | 200 OK | Sikeres       |
+| QUIZ-11  | POST `/submit/` | rossz quiz ID     | 404 Not Found                   | 404 Not Found | Sikeres       |
+| QUIZ-12  | POST `/submit/` | token nélkül      | 401 Unauthorized                | 401 Unauthorized | Sikeres       |
