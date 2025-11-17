@@ -49,3 +49,11 @@
 | FE-01    | Username + jelszó -> Login  | helyes adatok | Navigate to `/main`          | Router navigál `/main` | Sikeres       |
 | FE-02    | Helytelen login             | rossz jelszó  | Alert: "Invalid credentials" | alert("Invalid credentials") | Sikeres       |
 | FE-03    | Login page -> Register link | kattintás     | navigate `/register`         | Router navigál `/register` | Sikeres       |
+
+### Navigáció
+
+| Teszt ID | Interakció                      | Esemény                   | Várt eredmény       | Kapott eredmény | Állapot |
+| -------- | ------------------------------- | ------------------------- | ------------------- | --------------- | ------- |
+| FE-04    | Token nélkül `/main` megnyitása | user belép URL-ből        | redirect `/login`   | Router navigál `/login` | Sikeres       |
+| FE-05    | Token megléte -> `/`            | user megnyitja root URL-t | redirect `/main`    | Router navigál `/main` | Sikeres       |
+| FE-06    | Kattintás "Profile" gombra      | gomb kattintás            | navigate `/profile` | Router navigál `/profile` | Sikeres       |
