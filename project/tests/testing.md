@@ -57,3 +57,12 @@
 | FE-04    | Token nélkül `/main` megnyitása | user belép URL-ből        | redirect `/login`   | Router navigál `/login` | Sikeres       |
 | FE-05    | Token megléte -> `/`            | user megnyitja root URL-t | redirect `/main`    | Router navigál `/main` | Sikeres       |
 | FE-06    | Kattintás "Profile" gombra      | gomb kattintás            | navigate `/profile` | Router navigál `/profile` | Sikeres       |
+
+### Quiz Oldal
+
+| Teszt ID | Interakció    | Bemenet         | Várt eredmény            | Kapott eredmény | Állapot |
+| -------- | ------------- | --------------- | ------------------------ | --------------- | ------- |
+| FE-07    | Quiz betöltés | quiz ID létezik | kérdések megjelennek     | 10 kérdés + válaszlehetőségek | Sikeres       |
+| FE-08    | Submit        | helyes válasz   | alert + navigate `/main` | alert("Result: X/Y") + Navigate(`/main`) | Sikeres       |
+| FE-09    | Submit        | üres válaszok   | alert + navigate `/main` | alert("Result: 0/Y") + Navigate(`/main`) | Sikeres       |
+| FE-10    | Rossz quiz ID | nem létező      | 404 Not Found            | 404 Not Found | Sikeres       |
