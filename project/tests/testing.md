@@ -10,3 +10,14 @@
 | AUTH-04  | POST `/token/`                  | rossz password                 | 401 Unauthorized                 | 401 Unauthorized | Sikeres       |
 | AUTH-05  | POST `/token/refresh/`          | refresh token                  | 200 OK + új access token         | 200 OK | Sikeres       |
 | AUTH-06  | Védett endpoint token nélkül    | GET `/api/quizzes/generate/`   | 401 Unauthorized                 | 401 Unauthorized| Sikeres       |
+
+## Backend Quiz tesztek
+
+### Quiz generálás
+
+| Teszt ID | Metódus                       | Bement                              | Várt eredmény               | Kapott eredmény | Állapot |
+| -------- | ----------------------------- | ----------------------------------- | --------------------------- | --------------- | ------- |
+| QUIZ-01  | POST `/api/quizzes/generate/` | `{ topic: “Math” }`, érvényes token | 201 Created + quiz ID       | 201 Created | Sikeres       |
+| QUIZ-02  | POST `/generate/`             | topic hiányzik                      | 400 Bad Request             | 400 Bad Request | Sikeres       |
+| QUIZ-03  | POST `/generate/`             | token hiányzik                      | 401 Unauthorized            | 401 Unauthorized | Sikeres       |
+| QUIZ-04  | Mockolt AI rossz formátum     | mock: invalid JSON                  | 500 Server Error            | 500 Server Error | Sikeres       |
