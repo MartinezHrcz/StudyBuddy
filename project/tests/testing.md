@@ -39,3 +39,13 @@
 | QUIZ-10  | POST `/submit/` | üres `answers`    | 200 OK, correct=0               | 200 OK | Sikeres       |
 | QUIZ-11  | POST `/submit/` | rossz quiz ID     | 404 Not Found                   | 404 Not Found | Sikeres       |
 | QUIZ-12  | POST `/submit/` | token nélkül      | 401 Unauthorized                | 401 Unauthorized | Sikeres       |
+
+## Frontend tesztek
+
+### Login oldal
+
+| Teszt ID | Interakció                  | Bemenet       | Várt eredmény                | Kapott eredmény | Állapot |
+| -------- | --------------------------- | ------------- | ---------------------------- | --------------- | ------- |
+| FE-01    | Username + jelszó -> Login  | helyes adatok | Navigate to `/main`          | Router navigál `/main` | Sikeres       |
+| FE-02    | Helytelen login             | rossz jelszó  | Alert: "Invalid credentials" | alert("Invalid credentials") | Sikeres       |
+| FE-03    | Login page -> Register link | kattintás     | navigate `/register`         | Router navigál `/register` | Sikeres       |
