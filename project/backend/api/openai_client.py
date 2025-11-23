@@ -7,6 +7,7 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 
 def generate_quiz(topic: str):
     prompt = f'''Készíts 10 rövid quiz kérdést a következő témában magyarul csak: "{topic}".
+Ha a megadott téma Matematika, akkor a generált kérdésekre adott válaszoknak matematikailag helyeseknek kell lenniük.
 Adj vissza **csak JSON-t**, semmi egyéb szöveget. A JSON formátuma legyen:
 [
   {{
