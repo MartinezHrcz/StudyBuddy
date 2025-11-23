@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Quiz from './pages/Quiz';
 import Profile from './pages/Profile';
+import Leaderboard from './pages/Leaderboard';
 
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem('access_token'));
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/main" element={token ? <Main /> : <Navigate to="/login" />} />
         <Route path="/quiz/:id" element={token ? <Quiz /> : <Navigate to="/login" />} />
         <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
+        <Route path="/leaderboard" element={token ? <Leaderboard /> : <Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
   );
