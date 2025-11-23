@@ -6,6 +6,8 @@ from .models import Quiz, Question, Choice, QuizAttempt
 from .serializers import QuizSerializer, RegisterSerializer, QuizAttemptSerializer
 from .openai_client import generate_quiz
 from rest_framework import status
+from django.db.models import Sum, Count, F, Value, FloatField, ExpressionWrapper, Case, When, Q
+from django.db.models.functions import Coalesce, Cast
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -95,5 +97,115 @@ def profile_stats(request):
         'total_questions': total_questions,
         'total_correct': total_correct,
         'accuracy_percent': round(pct,2)
+    })
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def leaderboard_view(request):
+    """Return top users for a given metric.
+
+    Query params:
+    - metric: one of 'total_correct' (default), 'accuracy', 'total_quizzes'
+    - limit: number of users to return (default 10)
+    """
+    metric = request.GET.get('metric', 'total_correct')
+    try:
+        limit = int(request.GET.get('limit', 10))
+    except ValueError:
+        limit = 10
+
+    users = User.objects.annotate(
+        total_correct=Coalesce(Sum('quizattempt__correct'), Value(0)),
+        total_questions=Coalesce(Sum('quizattempt__total'), Value(0)),
+        total_quizzes=Coalesce(Count('quizattempt'), Value(0)),
+    ).annotate(
+        accuracy=Case(
+            When(total_questions=0, then=Value(0.0)),
+            default=ExpressionWrapper(Cast(F('total_correct'), FloatField()) / F('total_questions'), output_field=FloatField()),
+            output_field=FloatField(),
+        )
+    )
+
+    if metric == 'total_correct':
+        order_field = 'total_correct'
+    elif metric == 'total_quizzes':
+        order_field = 'total_quizzes'
+    else:
+        order_field = 'accuracy'
+
+    ordered = users.order_by(F(order_field).desc(nulls_last=True))[:limit]
+
+    data = []
+    for u in ordered:
+        data.append({
+            'id': u.id,
+            'username': u.username,
+            'total_correct': int(u.total_correct or 0),
+            'total_questions': int(u.total_questions or 0),
+            'total_quizzes': int(u.total_quizzes or 0),
+            'accuracy': round(float(u.accuracy or 0.0) * 100, 2),
+        })
+
+    return Response({'metric': metric, 'limit': limit, 'results': data})
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def leaderboard_my_rank(request):
+    """Return the authenticated user's rank for a given metric and their stats."""
+    user = request.user
+    metric = request.GET.get('metric', 'accuracy')
+
+    # compute user's own stats
+    agg = QuizAttempt.objects.filter(user=user).aggregate(
+        total_correct=Coalesce(Sum('correct'), Value(0)),
+        total_questions=Coalesce(Sum('total'), Value(0)),
+        total_quizzes=Coalesce(Count('id'), Value(0)),
+    )
+    total_correct = agg.get('total_correct') or 0
+    total_questions = agg.get('total_questions') or 0
+    total_quizzes = agg.get('total_quizzes') or 0
+    if total_questions:
+        accuracy = float(total_correct) / float(total_questions)
+    else:
+        accuracy = 0.0
+
+    # compute rank: count users with strictly greater metric, then +1
+    users = User.objects.annotate(
+        total_correct=Coalesce(Sum('quizattempt__correct'), Value(0)),
+        total_questions=Coalesce(Sum('quizattempt__total'), Value(0)),
+        total_quizzes=Coalesce(Count('quizattempt'), Value(0)),
+    ).annotate(
+        accuracy=Case(
+            When(total_questions=0, then=Value(0.0)),
+            default=ExpressionWrapper(Cast(F('total_correct'), FloatField()) / F('total_questions'), output_field=FloatField()),
+            output_field=FloatField(),
+        )
+    )
+
+    if metric == 'total_correct':
+        metric_value = total_correct
+        annotated = users.annotate(metric=F('total_correct'))
+    elif metric == 'total_quizzes':
+        metric_value = total_quizzes
+        annotated = users.annotate(metric=F('total_quizzes'))
+    else:
+        metric_value = accuracy
+        annotated = users.annotate(metric=F('accuracy'))
+
+    # number of users strictly greater than this user's metric
+    higher_count = annotated.filter(metric__gt=metric_value).count()
+    rank = higher_count + 1
+
+    return Response({
+        'id': user.id,
+        'username': user.username,
+        'metric': metric,
+        'metric_value': (round(metric_value*100,2) if metric == 'accuracy' else int(metric_value)),
+        'rank': rank,
+        'total_quizzes': int(total_quizzes),
+        'total_questions': int(total_questions),
+        'total_correct': int(total_correct),
     })
 
