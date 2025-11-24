@@ -45,6 +45,10 @@ export default function Main() {
     navigate('/profile');
   }
 
+  function goToLeaderboard() {
+    navigate('/leaderboard');
+  }
+
   function logout() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
@@ -57,20 +61,26 @@ export default function Main() {
               <h1 className="text-5xl font-extrabold text-center text-blue-600 mb-10 tracking-wide">
                   Study Buddy
               </h1>
-              <div className="flex flex-col sm:flex-row justify-between mb-10">
+                <div className="flex flex-col sm:flex-row justify-between mb-10">
                   <button
-                      onClick={goToProfile}
-                      className="flex-1 mx-1 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-800 transition"
+                    onClick={goToProfile}
+                    className="flex-1 mx-1 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-800 transition"
                   >
-                      My profile
+                    My profile
                   </button>
                   <button
-                      onClick={logout}
-                      className="flex-1 mx-1 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-800 transition"
+                    onClick={goToLeaderboard}
+                    className="flex-1 mx-1 px-6 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-700 transition"
                   >
-                      Logout
+                    Leaderboard
                   </button>
-              </div>
+                  <button
+                    onClick={logout}
+                    className="flex-1 mx-1 px-6 py-3 bg-red-500 text-white rounded-lg hover:bg-red-800 transition"
+                  >
+                    Logout
+                  </button>
+                </div>
 
               <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
                   Select a topic
