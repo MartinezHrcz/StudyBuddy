@@ -18,9 +18,9 @@
 * **Adatbázis**: PostgreSQL a megbízható adattárolás és gyors lekérdezések érdekében.
 * **AI**: OpenAI API a tananyagok és kvízek generálásához 🤖.
 
-## 🔐 Biztonság:
+## 🛡️ Biztonság
 
-* **JWT** a biztonságos hitelesítéshez 🔑
+* **JWT (JSON Web Tokens)**: Állapotmentes, biztonságos hitelesítés minden API híváshoz. 🔑
 * **HTTPS** kommunikáció az adatvédelem és biztonság érdekében 🔒
 
 ## 🚧 Hogyan kezdj hozzá:
