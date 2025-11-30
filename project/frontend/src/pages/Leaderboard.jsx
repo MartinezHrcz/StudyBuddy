@@ -189,16 +189,9 @@ export default function Leaderboard() {
                               <div className="text-xs text-gray-500 mt-1">Total Correct</div>
                           </div>
                           {myRank && (
-                              <div className="mt-8 p-6 bg-indigo-50 rounded-xl border border-indigo-200 shadow-md">
-                                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-                                      <div className="p-3 bg-white rounded-lg shadow-sm border border-indigo-100">
-                                          <div className="text-2xl font-extrabold text-green-600">
-                                              {currentMetric?.format(myRank.metric_value) ?? 'N/A'}
-                                          </div>
-                                          <div className="text-xs text-gray-500 mt-1">
-                                              {currentMetric?.label ?? 'Metric'} ({metric === 'accuracy' ? 'Current Metric' : ''})
-                                          </div>
-                                      </div>
+                              <div className="p-3 bg-white rounded-lg shadow-sm border border-indigo-100">
+                                  <div className="text-2xl font-extrabold text-green-600">
+                                      {currentMetric?.format(myRank.metric_value) ?? 'N/A'}
                                   </div>
                               </div>
                           )}
