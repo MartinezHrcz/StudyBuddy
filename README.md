@@ -33,6 +33,13 @@
 * **JWT (JSON Web Tokens)**: Állapotmentes, biztonságos hitelesítés minden API híváshoz. 🔑
 * **HTTPS** kommunikáció az adatvédelem és biztonság érdekében 🔒
 
+
+## 🚨 Követelmények:
+* **Node**: Npm, Nodejs v25.2.1
+* **Python**: Python3.11, pip
+* **OpenAI**: OpenAi api kulcs
+
+
 ## 🚧 Hogyan kezdj hozzá:
 
 1. Klónozd le a repót
