@@ -26,8 +26,8 @@ Return **only JSON**, no other text. The JSON format should be:
         resp = openai.chat.completions.create(
             model='gpt-4o-mini',
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=1000,
-            temperature=0.7,
+            max_tokens=1200,
+            temperature=0.8,
         )
 
         text = resp.choices[0].message.content
