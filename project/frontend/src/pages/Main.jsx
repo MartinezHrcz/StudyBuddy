@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const topics = ['Math', 'History', 'Physics', 'Programming', 'Biology', 'Geography', 'Basic-Economics', 'Chemistry'];
 
 export default function Main() {
   const navigate = useNavigate();
+  const [customTopic, setCustomTopic] = useState('');
 
   async function start(topic) {
     const token = localStorage.getItem('access_token');
@@ -49,6 +50,14 @@ export default function Main() {
     navigate('/leaderboard');
   }
 
+  function submitCustomTopic(e) {
+    e && e.preventDefault && e.preventDefault();
+    const t = (customTopic || '').trim();
+    if (!t) return;
+    start(t);
+    setCustomTopic('');
+  }
+
   function logout() {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
@@ -86,7 +95,26 @@ export default function Main() {
                   Select a topic
               </h2>
 
+              
+
               <ul className="flex flex-col items-center space-y-4">
+                  <li className="w-full max-w-xs">
+                    <form onSubmit={submitCustomTopic} className="w-full flex">
+                      <input
+                        type="text"
+                        value={customTopic}
+                        onChange={(e) => setCustomTopic(e.target.value)}
+                        placeholder="Or enter a custom topic..."
+                        className="flex-1 px-5 py-4 border rounded-l-lg focus:outline-none"
+                      />
+                      <button
+                        type="submit"
+                        className="px-5 py-4 bg-indigo-600 text-white rounded-r-lg hover:bg-indigo-800 transition text-lg font-medium"
+                      >
+                        Start
+                      </button>
+                    </form>
+                  </li>
                   {topics.map((t) => (
                       <li key={t} className="w-full max-w-xs">
                           <button
