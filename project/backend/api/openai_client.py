@@ -61,3 +61,18 @@ Return **only JSON**, no other text. The JSON format should be:
 
     except Exception as e:
         raise RuntimeError(f"OpenAI returned invalid JSON: {text}\nError: {e}")
+    
+def get_chat_response(user_message):
+    try:
+        resp = openai.chat.completions.create(
+            model='gpt-4o-mini',
+            messages=[
+                {"role": "system", "content": "You are a helpful study assistant called 'Study Buddy'. Answer the student's questions concisely and helpfully."},
+                {"role": "user", "content": user_message}
+            ],
+            max_tokens=500,
+            temperature=0.7,
+        )
+        return resp.choices[0].message.content
+    except Exception as e:
+        raise RuntimeError(f"OpenAI error: {e}")
