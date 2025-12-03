@@ -34,8 +34,15 @@ export default function Quiz() {
     });
 
     const data = await res.json();
-    alert(`Result: ${data.correct}/${data.total}`);
-    navigate('/main');
+    
+    navigate('/result', { 
+      state: { 
+        correct: data.correct, 
+        total: data.total, 
+        quizId: id,
+        topic: quiz.topic 
+      } 
+    });
   }
 
   return (
