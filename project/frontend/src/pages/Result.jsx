@@ -1,20 +1,20 @@
 import React from 'react';
 import { useLocation, useNavigate, Navigate } from 'react-router-dom';
+import { Star } from 'lucide-react';
 
 export default function Result() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Ha valaki közvetlenül írja be a /result-ot, és nincs adat, visszaküldjük a főoldalra
   if (!location.state) {
     return <Navigate to="/main" />;
   }
 
-  const { correct, total, quizId, topic } = location.state;
+
+  const { correct, total, xp_earned, quizId, topic } = location.state;
   const percentage = Math.round((correct / total) * 100);
 
   function handleRetry() {
-    // Visszanavigálunk ugyanarra a kvízre
     navigate(`/quiz/${quizId}`);
   }
 
@@ -29,8 +29,7 @@ export default function Result() {
         <h1 className="text-4xl font-extrabold text-gray-800 mb-2">Quiz Completed!</h1>
         <p className="text-gray-500 mb-8 text-lg">Topic: <span className="font-semibold text-blue-600">{topic}</span></p>
 
-        {/* Eredmény kártya */}
-        <div className="bg-gray-50 rounded-2xl p-6 mb-8 border border-gray-100">
+        <div className="bg-gray-50 rounded-2xl p-6 mb-6 border border-gray-100">
           <div className="text-6xl font-black text-blue-600 mb-2">
             {percentage}%
           </div>
@@ -39,7 +38,13 @@ export default function Result() {
           </p>
         </div>
 
-        {/* Gombok */}
+        {xp_earned > 0 && (
+            <div className="mb-8 p-4 bg-yellow-50 border border-yellow-200 rounded-xl flex items-center justify-center gap-2">
+                <Star className="text-yellow-500 w-6 h-6 fill-current" />
+                <span className="text-xl font-bold text-yellow-700">+{xp_earned} XP Earned!</span>
+            </div>
+        )}
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={handleRetry}
