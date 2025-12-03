@@ -9,6 +9,9 @@ from rest_framework import status
 from django.db.models import Sum, Count, F, Value, FloatField, ExpressionWrapper, Case, When, Q
 from django.db.models.functions import Coalesce, Cast
 
+XP_PER_CORRECT = 10   
+XP_PER_LEVEL = 100    
+
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def register_view(request):
@@ -24,7 +27,6 @@ def chat_with_ai_view(request):
     message = request.data.get('message')
     if not message:
         return Response({'error': 'Message is required'}, status=400)
-
     try:
         response_text = get_chat_response(message)
         return Response({'reply': response_text})
@@ -80,7 +82,7 @@ def submit_quiz(request, quiz_id):
         quiz = Quiz.objects.get(pk=quiz_id)
     except Quiz.DoesNotExist:
         return Response({'error':'not found'}, status=404)
-    answers = request.data.get('answers', {})  # {question_id: choice_id}
+    answers = request.data.get('answers', {})  
     total = 0
     correct = 0
     for q in quiz.questions.all():
@@ -93,8 +95,18 @@ def submit_quiz(request, quiz_id):
                     correct += 1
             except Choice.DoesNotExist:
                 pass
+    
+    
     attempt = QuizAttempt.objects.create(user=request.user, quiz=quiz, correct=correct, total=total)
-    return Response({'correct': correct, 'total': total})
+    
+    
+    xp_earned = correct * XP_PER_CORRECT
+    
+    return Response({
+        'correct': correct, 
+        'total': total,
+        'xp_earned': xp_earned  
+    })
 
 @api_view(['GET'])
 def profile_stats(request):
@@ -104,24 +116,30 @@ def profile_stats(request):
     total_questions = sum(a.total for a in attempts)
     total_correct = sum(a.correct for a in attempts)
     pct = (total_correct / total_questions * 100) if total_questions else 0
+    
+    total_xp = total_correct * XP_PER_CORRECT
+    
+    current_level = (total_xp // XP_PER_LEVEL) + 1
+
+    xp_progress_in_level = total_xp % XP_PER_LEVEL
+    
     return Response({
         'username': user.username,
         'total_quizzes': total_quizzes,
         'total_questions': total_questions,
         'total_correct': total_correct,
-        'accuracy_percent': round(pct,2)
+        'accuracy_percent': round(pct,2),
+        'total_xp': total_xp,
+        'current_level': current_level,
+        'xp_progress': xp_progress_in_level,
+        'xp_per_level': XP_PER_LEVEL
     })
 
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def leaderboard_view(request):
-    """Return top users for a given metric.
-
-    Query params:
-    - metric: one of 'total_correct' (default), 'accuracy', 'total_quizzes'
-    - limit: number of users to return (default 10)
-    """
+    """Return top users for a given metric."""
     metric = request.GET.get('metric', 'total_correct')
     try:
         limit = int(request.GET.get('limit', 10))
@@ -184,7 +202,6 @@ def leaderboard_my_rank(request):
     else:
         accuracy = 0.0
 
-    # compute rank: count users with strictly greater metric, then +1
     users = User.objects.annotate(
         total_correct=Coalesce(Sum('quizattempt__correct'), Value(0)),
         total_questions=Coalesce(Sum('quizattempt__total'), Value(0)),
@@ -207,7 +224,6 @@ def leaderboard_my_rank(request):
         metric_value = accuracy
         annotated = users.annotate(metric=F('accuracy'))
 
-    # number of users strictly greater than this user's metric
     higher_count = annotated.filter(metric__gt=metric_value).count()
     rank = higher_count + 1
 
@@ -221,4 +237,3 @@ def leaderboard_my_rank(request):
         'total_questions': int(total_questions),
         'total_correct': int(total_correct),
     })
-
