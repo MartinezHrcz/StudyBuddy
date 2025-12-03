@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from .models import Quiz, Question, Choice, QuizAttempt
 from .serializers import QuizSerializer, RegisterSerializer, QuizAttemptSerializer
-from .openai_client import generate_quiz
+from .openai_client import generate_quiz, get_chat_response
 from rest_framework import status
 from django.db.models import Sum, Count, F, Value, FloatField, ExpressionWrapper, Case, When, Q
 from django.db.models.functions import Coalesce, Cast
@@ -17,6 +17,19 @@ def register_view(request):
         user = serializer.save()
         return Response({'id': user.id, 'username': user.username}, status=201)
     return Response(serializer.errors, status=400)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def chat_with_ai_view(request):
+    message = request.data.get('message')
+    if not message:
+        return Response({'error': 'Message is required'}, status=400)
+
+    try:
+        response_text = get_chat_response(message)
+        return Response({'reply': response_text})
+    except RuntimeError as e:
+        return Response({'error': str(e)}, status=500)
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
