@@ -11,7 +11,6 @@ export default function Quiz() {
     fetch(`/api/quizzes/${id}/`)
       .then(r => r.json())
       .then(data => {
-        //console.log('Fetched quiz:', data);
         setQuiz(data);
       });
   }, [id]);
@@ -35,10 +34,12 @@ export default function Quiz() {
 
     const data = await res.json();
     
+    
     navigate('/result', { 
       state: { 
         correct: data.correct, 
-        total: data.total, 
+        total: data.total,
+        xp_earned: data.xp_earned,
         quizId: id,
         topic: quiz.topic 
       } 
