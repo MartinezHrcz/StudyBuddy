@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import ChatWindow from '../components/ChatWindow';
 
 const topics = ['Math', 'History', 'Physics', 'Programming', 'Biology', 'Geography', 'Basic-Economics', 'Chemistry'];
 
@@ -56,7 +57,7 @@ export default function Main() {
   }
 
   return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-100 to-blue-500 flex items-center justify-center py-12 px-4">
+      <div className="min-h-screen bg-gradient-to-br from-gray-100 to-blue-500 flex items-center justify-center py-12 px-4 relative">
           <div className="bg-white shadow-xl rounded-3xl w-full max-w-lg p-8 md:p-12">
               <h1 className="text-5xl font-extrabold text-center text-blue-600 mb-10 tracking-wide">
                   Study Buddy
@@ -99,6 +100,9 @@ export default function Main() {
                   ))}
               </ul>
           </div>
+          
+          
+          <ChatWindow />
       </div>
   );
 }
