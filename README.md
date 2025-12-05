@@ -32,6 +32,9 @@
 
 Élvezd a tanulást a **Study Buddy**-val! 💡
 
+### Testing:
+`docker compose run --rm backend python manage.py test api`
+
 ---
 
 Ha kérdéseid vagy ötleteid vannak, bátran kereshetsz minket!
