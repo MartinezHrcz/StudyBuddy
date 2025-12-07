@@ -47,6 +47,31 @@
 3. Állítsd be a környezeti változókat (API kulcsok, adatbázis beállítások) a `.env` fájlban.
 4. Indítsd el az alkalmazást, és kezdj el tanulni!
 
+## Tests:
+# 🧪 Unit and Integration Test Coverage Summary
+
+| Category | Test Suite | Test Case | Description |
+| :--- | :--- | :--- | :--- |
+| **Authentication & Public API** | `RegistrationAndAuthTests` | `test_register_view_success` | Verifies a new user can successfully **register** and a `User` object is created. |
+| **Authentication & Public API** | `RegistrationAndAuthTests` | `test_chat_with_ai_requires_auth` | Ensures the `chat_with_ai` endpoint returns **401 Unauthorized** when accessed without a token. |
+| **API Views (AI Mocked)** | `ChatViewTests` | `test_chat_with_ai_view_success` | Mocks the AI client and verifies the endpoint returns **200 OK** and the correct mock response. |
+| **API Views (AI Mocked)** | `ChatViewTests` | `test_chat_with_ai_view_api_error` | Ensures the view handles `RuntimeError` from the AI client, returning **500 Internal Server Error**. |
+| **API Views (AI Mocked)** | `GenerateQuizViewTests` | `test_generate_quiz_view_success` | Mocks AI output and verifies that the view creates one **Quiz, two Questions, and four Choice** objects with **201 Created**. |
+| **Models** | `QuizModelTests` | `test_quiz_creation` | Verifies basic `Quiz` field assignment and ownership relationship. |
+| **Models** | `QuizModelTests` | `test_quiz_owner_can_be_null` | Checks that a quiz can be created without an owner (`owner=None`). |
+| **Models** | `QuizModelTests` | `test_quiz_str_representation` | Tests the human-readable output of the `Quiz` model's `__str__` method. |
+| **Models** | `QuestionAndChoiceModelTests`| `test_question_creation_and_relationship` | Verifies question relationship to `Quiz` and checks the default `is_true_false=False` value. |
+| **Models** | `QuestionAndChoiceModelTests`| `test_question_str_representation` | Ensures the `Question` `__str__` method correctly **truncates** long prompts. |
+| **Models** | `QuestionAndChoiceModelTests`| `test_choice_creation_and_relationship` | Verifies `Choice` relationship to `Question` and checks the `is_correct` flag. |
+| **Models** | `QuizAttemptModelTests` | `test_quiz_attempt_creation` | Verifies that `QuizAttempt` correctly records **user, quiz, correct, and total scores**. |
+| **Models** | `QuizAttemptModelTests` | `test_finished_at_is_optional` | Checks that `finished_at` is initially `None` and can be subsequently updated. |
+| **Serializers** | `TestSerializer` | `test_register_creation_success` | Validates the `RegisterSerializer` with valid data, ensuring the user is created with a **hashed password**. |
+| **Serializers** | `TestSerializer` | `test_register_creation_missing_field` | Ensures `RegisterSerializer` **fails** when the required `username` field is missing. |
+| **Serializers** | `TestSerializer` | `test_quiz_attempt_deserialization_creation` | Verifies `QuizAttemptSerializer` can deserialize data and create a new attempt object. |
+| **Serializers** | `TestSerializer` | `test_choice_serialization` | Checks that the `ChoiceSerializer` outputs all required fields. |
+| **Serializers** | `TestSerializer` | `test_question_serialization_with_choices` | Verifies `QuestionSerializer` uses **nested serialization** to include all related `Choice` objects. |
+| **Serializers** | `TestSerializer` | `test_quiz_serialization_with_nesting` | Ensures `QuizSerializer` correctly performs **deep nesting** to include `Question` and `Choice` data. |
+
 Élvezd a tanulást a **Study Buddy**-val! 💡
 
 ---
