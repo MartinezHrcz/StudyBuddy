@@ -63,14 +63,14 @@ class ChatViewTests(QuizAPITests):
         self.assertEqual(response.data['reply'], "Hello! I am a test response.")
         mock_get_chat_response.assert_called_once_with('Hello AI')
 
-     def test_chat_with_ai_view_api_error(self, mock_get_chat_response):
-            mock_get_chat_response.side_effect = RuntimeError("OpenAI failed")
-            url = reverse('chat_with_ai')
-            data = {'message': 'Fail me'}
-            response = self.auth_client.post(url, data, format='json')
+    def test_chat_with_ai_view_api_error(self, mock_get_chat_response):
+        mock_get_chat_response.side_effect = RuntimeError("OpenAI failed")
+        url = reverse('chat_with_ai')
+        data = {'message': 'Fail me'}
+        response = self.auth_client.post(url, data, format='json')
 
-            self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
-            self.assertIn('OpenAI failed', response.data['error'])
+        self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
+        self.assertIn('OpenAI failed', response.data['error'])
 
 @patch('api.views.generate_quiz')
 class GenerateQuizViewTests(QuizAPITests):
