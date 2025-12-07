@@ -27,8 +27,6 @@ const PasswordChangeForm = () => {
       return false;
     }
 
-    // You would typically add more validation (e.g., against currentPassword) here.
-
     return true;
   };
 
@@ -40,18 +38,14 @@ const PasswordChangeForm = () => {
       return;
     }
 
-    // In a real application, you would send these values to your backend API here
     console.log("Attempting to change password...");
     console.log("Current:", currentPassword);
     console.log("New:", newPassword);
 
-    // Simulate an API call success
-    // Replace with your actual fetch/axios call
     setTimeout(() => {
       setMessage("Password updated successfully!");
       setIsError(false);
 
-      // Clear fields after success
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
