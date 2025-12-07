@@ -72,3 +72,22 @@ class ChatViewTests(QuizAPITests):
             self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
             self.assertIn('OpenAI failed', response.data['error'])
 
+@patch('api.views.generate_quiz')
+class GenerateQuizViewTests(QuizAPITests):
+    def test_generate_quiz_view_success(self, mock_generate_quiz):
+        mock_generate_quiz.return_value = [
+            {'prompt': 'What is 2+2?', 'type': 'mcq', 'choices': [
+                {'text': '3', 'is_correct': False},
+                {'text': '4', 'is_correct': True}
+            ]},
+            {'prompt': 'Django is a Python framework.', 'type': 'tf', 'correct': True}
+        ]
+
+        url = reverse('generate_quiz')
+        response = self.auth_client.post(url, {'topic': 'Math'}, format='json')
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(Quiz.objects.count(), 1)
+        self.assertEqual(Question.objects.count(), 2)
+        self.assertEqual(Choice.objects.count(), 4)
+        self.assertEqual(response.data['topic'], 'Math')
