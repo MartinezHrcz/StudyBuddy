@@ -72,3 +72,9 @@ class QuizAttemptModelTests(TestCase):
         self.assertEqual(attempt.correct, 5)
         self.assertEqual(attempt.total, 10)
         self.assertIsNotNone(attempt.started_at)
+
+
+    def test_quiz_attempt_str_representation(self):
+        attempt = QuizAttempt.objects.create(user=self.user, quiz=self.quiz)
+        self.assertEqual(str(attempt), f'Attempt {attempt.id} by attempt_user')
+
