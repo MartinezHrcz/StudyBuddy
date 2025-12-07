@@ -17,3 +17,6 @@ class QuizModelTests(TestCase):
         self.assertEqual(quiz.topic, 'History')
         self.assertEqual(quiz.owner, self.user)
 
+    def test_quiz_str_representation(self):
+        quiz = Quiz.objects.create(owner=self.user, topic='Science')
+        self.assertEqual(str(quiz), f'Quiz {quiz.id} - Science')
