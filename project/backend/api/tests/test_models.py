@@ -37,3 +37,8 @@ class QuestionAndChoiceModelTests(TestCase):
         self.assertEqual(question.is_true_false, False)
         self.assertEqual(self.quiz.questions.count(), 1)
 
+    def test_question_str_representation(self):
+        prompt = 'This is a really long question prompt that should be truncated.'
+        question = Question.objects.create(quiz=self.quiz, prompt=prompt)
+        self.assertEqual(str(question), 'This is a really long question prompt that should ')
+
