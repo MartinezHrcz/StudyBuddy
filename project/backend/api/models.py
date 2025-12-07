@@ -34,6 +34,7 @@ class QuizAttempt(models.Model):
     finished_at = models.DateTimeField(null=True, blank=True)
     correct = models.IntegerField(default=0)
     total = models.IntegerField(default=0)
+    is_retake = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Attempt {self.id} by {self.user}"

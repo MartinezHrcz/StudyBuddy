@@ -82,7 +82,8 @@ def submit_quiz(request, quiz_id):
         quiz = Quiz.objects.get(pk=quiz_id)
     except Quiz.DoesNotExist:
         return Response({'error':'not found'}, status=404)
-    answers = request.data.get('answers', {})  
+    answers = request.data.get('answers', {})
+    is_retake = request.data.get('is_retake', False)
     total = 0
     correct = 0
     for q in quiz.questions.all():
@@ -97,21 +98,29 @@ def submit_quiz(request, quiz_id):
                 pass
     
     
-    attempt = QuizAttempt.objects.create(user=request.user, quiz=quiz, correct=correct, total=total)
+    attempt = QuizAttempt.objects.create(
+        user=request.user, 
+        quiz=quiz, 
+        correct=correct, 
+        total=total,
+        is_retake=is_retake
+    )
     
-    
-    xp_earned = correct * XP_PER_CORRECT
+    # Only award XP if not a retake
+    xp_earned = 0 if is_retake else (correct * XP_PER_CORRECT)
     
     return Response({
         'correct': correct, 
         'total': total,
-        'xp_earned': xp_earned  
+        'xp_earned': xp_earned,
+        'is_retake': is_retake
     })
 
 @api_view(['GET'])
 def profile_stats(request):
     user = request.user
-    attempts = QuizAttempt.objects.filter(user=user)
+    # Only count non-retake attempts for scoring
+    attempts = QuizAttempt.objects.filter(user=user, is_retake=False)
     total_quizzes = attempts.count()
     total_questions = sum(a.total for a in attempts)
     total_correct = sum(a.correct for a in attempts)
@@ -147,9 +156,9 @@ def leaderboard_view(request):
         limit = 10
 
     users = User.objects.annotate(
-        total_correct=Coalesce(Sum('quizattempt__correct'), Value(0)),
-        total_questions=Coalesce(Sum('quizattempt__total'), Value(0)),
-        total_quizzes=Coalesce(Count('quizattempt'), Value(0)),
+        total_correct=Coalesce(Sum('quizattempt__correct', filter=Q(quizattempt__is_retake=False)), Value(0)),
+        total_questions=Coalesce(Sum('quizattempt__total', filter=Q(quizattempt__is_retake=False)), Value(0)),
+        total_quizzes=Coalesce(Count('quizattempt', filter=Q(quizattempt__is_retake=False)), Value(0)),
     ).annotate(
         accuracy=Case(
             When(total_questions=0, then=Value(0.0)),
@@ -188,8 +197,8 @@ def leaderboard_my_rank(request):
     user = request.user
     metric = request.GET.get('metric', 'accuracy')
 
-    # compute user's own stats
-    agg = QuizAttempt.objects.filter(user=user).aggregate(
+    # compute user's own stats (excluding retakes)
+    agg = QuizAttempt.objects.filter(user=user, is_retake=False).aggregate(
         total_correct=Coalesce(Sum('correct'), Value(0)),
         total_questions=Coalesce(Sum('total'), Value(0)),
         total_quizzes=Coalesce(Count('id'), Value(0)),
@@ -203,9 +212,9 @@ def leaderboard_my_rank(request):
         accuracy = 0.0
 
     users = User.objects.annotate(
-        total_correct=Coalesce(Sum('quizattempt__correct'), Value(0)),
-        total_questions=Coalesce(Sum('quizattempt__total'), Value(0)),
-        total_quizzes=Coalesce(Count('quizattempt'), Value(0)),
+        total_correct=Coalesce(Sum('quizattempt__correct', filter=Q(quizattempt__is_retake=False)), Value(0)),
+        total_questions=Coalesce(Sum('quizattempt__total', filter=Q(quizattempt__is_retake=False)), Value(0)),
+        total_quizzes=Coalesce(Count('quizattempt', filter=Q(quizattempt__is_retake=False)), Value(0)),
     ).annotate(
         accuracy=Case(
             When(total_questions=0, then=Value(0.0)),
@@ -237,3 +246,27 @@ def leaderboard_my_rank(request):
         'total_questions': int(total_questions),
         'total_correct': int(total_correct),
     })
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def user_quiz_attempts(request):
+    """Return user's past quiz attempts ordered by most recent first."""
+    user = request.user
+    attempts = QuizAttempt.objects.filter(user=user, is_retake=False).select_related('quiz').order_by('-started_at')
+    
+    data = []
+    for attempt in attempts:
+        accuracy = (attempt.correct / attempt.total * 100) if attempt.total > 0 else 0
+        data.append({
+            'id': attempt.id,
+            'quiz_id': attempt.quiz.id,
+            'topic': attempt.quiz.topic,
+            'correct': attempt.correct,
+            'total': attempt.total,
+            'accuracy': round(accuracy, 2),
+            'started_at': attempt.started_at.isoformat() if attempt.started_at else None,
+            'finished_at': attempt.finished_at.isoformat() if attempt.finished_at else None,
+        })
+    
+    return Response({'attempts': data})

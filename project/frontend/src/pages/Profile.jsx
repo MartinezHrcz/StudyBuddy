@@ -9,6 +9,7 @@ export default function Profile() {
     total_correct: null,
     total_quizzes: null,
   });
+  const [attempts, setAttempts] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,6 +44,18 @@ export default function Profile() {
               total_quizzes: tq && tq.rank ? tq.rank : null,
             });
           });
+
+          // Fetch user's past quiz attempts
+          fetch("/api/profile/attempts/", {
+            headers: { Authorization: `Bearer ${token}` },
+          })
+            .then((r) => r.json())
+            .then((data) => {
+              setAttempts(data.attempts || []);
+            })
+            .catch((_) => {
+              setAttempts([]);
+            });
         }
       });
   }, []);
@@ -135,6 +148,57 @@ export default function Profile() {
               ) : null}
             </span>
           </div>
+
+          {/* Past Attempts Section */}
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+              <span>📋</span> Recent Quiz Attempts
+            </h3>
+            {attempts.length === 0 ? (
+              <p className="text-gray-500 text-sm">No quiz attempts yet.</p>
+            ) : (
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm">
+                  <thead className="bg-gray-100 border-b">
+                    <tr>
+                      <th className="text-left px-3 py-2 font-semibold">Topic</th>
+                      <th className="text-center px-3 py-2 font-semibold">Score</th>
+                      <th className="text-center px-3 py-2 font-semibold">Accuracy</th>
+                      <th className="text-right px-3 py-2 font-semibold">Date</th>
+                      <th className="text-center px-3 py-2 font-semibold">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {attempts.map((attempt) => (
+                      <tr key={attempt.id} className="border-b hover:bg-gray-50">
+                        <td className="px-3 py-2 font-medium text-gray-700">{attempt.topic}</td>
+                        <td className="text-center px-3 py-2">
+                          {attempt.correct}/{attempt.total}
+                        </td>
+                        <td className="text-center px-3 py-2">
+                          <span className={`font-semibold ${attempt.accuracy >= 70 ? 'text-green-600' : attempt.accuracy >= 50 ? 'text-yellow-600' : 'text-red-600'}`}>
+                            {attempt.accuracy}%
+                          </span>
+                        </td>
+                        <td className="text-right px-3 py-2 text-gray-600 text-xs">
+                          {attempt.started_at ? new Date(attempt.started_at).toLocaleDateString() : 'N/A'}
+                        </td>
+                        <td className="text-center px-3 py-2">
+                          <button
+                            onClick={() => navigate(`/quiz/${attempt.quiz_id}?retake=true`)}
+                            className="px-2 py-1 bg-indigo-500 text-white text-xs rounded hover:bg-indigo-600 transition"
+                          >
+                            Retake
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+
             <div className="mt-10 flex justify-center">
                 <button
                     onClick={() => navigate("/main")}
