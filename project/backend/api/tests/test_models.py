@@ -56,3 +56,19 @@ class QuestionAndChoiceModelTests(TestCase):
         text = 'This choice text is also very long and needs to be truncated for display.'
         choice = Choice.objects.create(question=question, text=text)
         self.assertEqual(str(choice), 'This choice text is also very long and needs to be')
+
+
+class QuizAttemptModelTests(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='attempt_user', password='p')
+        self.quiz = Quiz.objects.create(owner=self.user, topic='Attempts')
+
+    def test_quiz_attempt_creation(self):
+        attempt = QuizAttempt.objects.create(user=self.user, quiz=self.quiz, correct=5, total=10)
+
+        self.assertTrue(isinstance(attempt, QuizAttempt))
+        self.assertEqual(attempt.user, self.user)
+        self.assertEqual(attempt.quiz, self.quiz)
+        self.assertEqual(attempt.correct, 5)
+        self.assertEqual(attempt.total, 10)
+        self.assertIsNotNone(attempt.started_at)
