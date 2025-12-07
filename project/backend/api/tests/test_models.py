@@ -42,3 +42,12 @@ class QuestionAndChoiceModelTests(TestCase):
         question = Question.objects.create(quiz=self.quiz, prompt=prompt)
         self.assertEqual(str(question), 'This is a really long question prompt that should ')
 
+    def test_choice_creation_and_relationship(self):
+        question = Question.objects.create(quiz=self.quiz, prompt='Is this a good choice?')
+        choice = Choice.objects.create(question=question, text='Yes, it is correct.', is_correct=True)
+
+        self.assertTrue(isinstance(choice, Choice))
+        self.assertEqual(choice.question, question)
+        self.assertTrue(choice.is_correct)
+        self.assertEqual(question.choices.count(), 1)
+
