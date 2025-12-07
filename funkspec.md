@@ -64,7 +64,10 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - **Bejelentkezés:**  
   A felhasználó hitelesítése JWT tokennel történik.  
 - **Profil megtekintése / szerkesztése:**  
-  A felhasználó módosíthatja adatait (pl. név, profilkép, preferált nyelv).  
+  - A felhasználó módosíthatja adatait (pl. név, profilkép, preferált nyelv).
+  - A felhasználónak van lehetősége a jelszóváltoztatásra.
+
+  ![Jelszó változtatás](./Ábrák/jelszovalt.svg)
 
 ### 2.2 Témaválasztás és tanulási folyamat
 - A rendszer képes személyre szabott tanulási útvonalat ajánlani korábbi eredmények alapján.
@@ -76,9 +79,17 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
   - egy rövid **összefoglaló jegyzetet**,  
   - és **5–10 kvízkérdést** a megadott témában.  
 - **Tananyag megjelenítése:**  
-  A React felület formázott módon jeleníti meg a jegyzetet és a kérdéseket.  
+  A React felület formázott módon jeleníti meg a jegyzetet és a kérdéseket.
+
+  ![Quizz generálás](./Ábrák/AI_api.svg)
 
 ### 2.3 Kvízkitöltés és értékelés
+**AI Alapú Tananyag-Generálás**
+* **Témaválasztás:** A felhasználó választhat előre definiált vagy saját maga által megadott témát.
+* **Tartalomgenerálás:** A Django backend az **OpenAI API** hívásával automatikusan generál:
+    * Rövid, összefoglaló **jegyzetet**.
+    * **5–10 kvízkérdést** a témához, minden kérdéshez 4 válaszlehetőséggel.
+* **Tananyag Megjelenítése:** A React frontend formázottan jeleníti meg a generált jegyzetet és a kvízt.
 - A kvízidő korlátozható (pl. 10 perc / téma), és a rendszer figyeli a válaszidőt is.
 - Hibás válaszok esetén az AI rövid magyarázatot adhat.
 - Az eredmények alapján szintek adhatók.
@@ -96,7 +107,9 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - A statisztikai modul képes időalapú trendeket (heti/havi fejlődés) és összehasonlításokat megjeleníteni.
 - Az AI dinamikusan javasolhat gyakorló kvízeket a gyenge pontok erősítésére.
 - **Eredmények listázása:**  
-  A felhasználó megtekintheti korábbi kvízeit és pontszámait.  
+  A felhasználó megtekintheti korábbi mentett kvízeit és pontszámait.  
+- **Eredmények összevetése más felhasználókkal**
+  A versenyszellem egy igazán lendítő hatást adhat a tanulásban, ezért a felhasználó megtekintheti hogy hanyadik a ranglistán.
 - **Grafikonos megjelenítés:**  
   A frontend vizuálisan ábrázolja a fejlődést (pl. React Chart.js vagy Recharts segítségével).  
 - **Ajánlások:**  
@@ -110,12 +123,17 @@ Az alábbiakban a fő funkcionális modulok és folyamatok olvashatók:
 - **Gamifikáció:**  
   A felhasználó szinteket vagy teljesítményértékeket kaphat.  
 - **Egyszerű, letisztult interfész:**  
-  Minimalista, modern felhasználói élmény, sötét/világos mód támogatással.  
+  Minimalista, modern felhasználói élmény, sötét/világos mód támogatással.
 
-### 2.6 Biztonság és adatvédelem
-- A JWT tokenek időkorlátosak és automatikusan megújíthatók refresh tokennel.
-- Jelszavak **bcrypt** algoritmussal kerülnek titkosításra.  
-- Az API kommunikáció **HTTPS** protokollon keresztül történik.    
+
+
+### 2.6 Biztonság
+A biztonság a tervezés fontos része:
+* **Jelszó-titkosítás:** A jelszavak **bcrypt** algoritmussal hashelve tárolódnak.
+* **Biztonságos Kommunikáció:** Az API kommunikáció teljes egészében **HTTPS** protokollon keresztül történik, ami biztosítja az adatok titkosítását átvitel közben.
+* **Hitelesítés:** A **JWT tokenek** használata időkorlátos hozzáférést biztosít, refresh tokenekkel az automatikus megújításhoz.
+
+* A Study Buddy így egy **hatékony, adaptív és biztonságos** platformot nyújt, amely a legújabb webes és AI technológiák integrálásával támogatja a tanulók motivált és eredményes felkészülését. 
 ---
 
 ## 3. Összefoglalás:
@@ -139,6 +157,7 @@ A rendszer jövőbeli bővítési iránya lehet mobilalkalmazás, közösségi f
 | **JWT (JSON Web Token)** | Nyílt szabvány, amely lehetővé teszi a hitelesítési információk biztonságos továbbítását a felek között **JSON** objektumként, általában a bejelentkezett felhasználók jogosultságainak ellenőrzésére használva. |
 | **Express.js** | **Node.js** alapú, gyors és minimalista webes alkalmazás keretrendszer, ami a jelen architektúrában **köztes REST API rétegként** szolgál. |
 | **React.js** | JavaScript könyvtár a **felhasználói felületek** (UI) építésére. Segíti a dinamikus, komponens alapú frontend fejlesztést. |
+| **Felhasználói felületek** | Minden olyan megjelenített ablak, file vagy oldal amely a felhasználóval való kommunikációra szolgál. |
 | **Django** | Magas szintű, Python alapú webes keretrendszer, amely a jelen architektúrában az **adatkezelési logikáért** (ORM) és az **AI hívások** kezeléséért felel. |
 | **PostgreSQL** | Objektum-relációs adatbázis-kezelő rendszer, amelyet a felhasználói adatok, kvízek és statisztikák megbízható tárolására javasol az architektúra. |
 | **ORM (Object Relational Mapper)** | **(Django esetében)** Egy olyan programozási technika, amely lehetővé teszi az adatbázis adatainak és lekérdezéseinek kezelését az alkalmazás programozási nyelve (Python) objektumain keresztül SQL helyett. |

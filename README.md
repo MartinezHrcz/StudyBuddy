@@ -7,8 +7,18 @@
 * **AI által generált tananyagok**: Képzeld el, hogy jegyzeteket és kvízeket kapsz a választott témádból, mindezt mesterséges intelligenciával 📖.
 * **Kvízek és teljesítmény nyomon követés**: Tölts ki időkorlátos kvízeket, kövesd a fejlődésed és kapj személyre szabott visszajelzést 📊.
 * **Interaktív tanulás**: Választhatsz témákat, mentheted kedvenceidet, és letöltheted a tananyagot PDF formátumban 🔄.
-* **Felhasználóbarát UI**: Modern, reszponzív dizájn, sötét és világos mód támogatással 🌗.
+* **Felhasználóbarát UI**: Modern, reszponzív dizájn.
 * **Gamifikáció**: Szerezz pontokat, szinteket és jelvényeket miközben tanulsz 🏆.
+
+## 🌟 Főbb Jellemzők
+
+| Kategória | Funkció | Leírás | Emoji |
+| :--- | :--- | :--- | :--- |
+| **Személyre Szabott Tanulás** | **AI-Powered Tartalomgenerálás** | Generálj valós idejű, releváns kvízeket BÁRMELY választott témáról az OpenAI API segítségével. | 🧠 |
+| | **Interaktív Kvízek** | Tölts ki időkorlátos kvízeket különböző témákban. | ⏱️ |
+| **Teljesítménykövetés** | **Statisztikák** | Kövesd a fejlődésedet, kvízteljesítményedet, pontosságodat és az egyéni erősségeidet/gyengeségeidet. | 📊 |
+| **Motiváció & Élmény** | **Gamifikált Tanulás** | Szerezz pontokat, emelkedj szinteken. | 🏆 |
+| | **Modern UI/UX** | Reszponzív dizájn, amely zökkenőmentesen. | 💡 |
 
 ## 🧑‍💻 Technológiai Stack:
 
@@ -18,10 +28,17 @@
 * **Adatbázis**: PostgreSQL a megbízható adattárolás és gyors lekérdezések érdekében.
 * **AI**: OpenAI API a tananyagok és kvízek generálásához 🤖.
 
-## 🔐 Biztonság:
+## 🛡️ Biztonság
 
-* **JWT** a biztonságos hitelesítéshez 🔑
+* **JWT (JSON Web Tokens)**: Állapotmentes, biztonságos hitelesítés minden API híváshoz. 🔑
 * **HTTPS** kommunikáció az adatvédelem és biztonság érdekében 🔒
+
+
+## 🚨 Követelmények:
+* **Node**: Npm, Nodejs v25.2.1
+* **Python**: Python3.11, pip
+* **OpenAI**: OpenAi api kulcs
+
 
 ## 🚧 Hogyan kezdj hozzá:
 

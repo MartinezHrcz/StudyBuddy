@@ -11,7 +11,6 @@ export default function Quiz() {
     fetch(`/api/quizzes/${id}/`)
       .then(r => r.json())
       .then(data => {
-        //console.log('Fetched quiz:', data);
         setQuiz(data);
       });
   }, [id]);
@@ -34,8 +33,17 @@ export default function Quiz() {
     });
 
     const data = await res.json();
-    alert(`Result: ${data.correct}/${data.total}`);
-    navigate('/main');
+    
+    
+    navigate('/result', { 
+      state: { 
+        correct: data.correct, 
+        total: data.total,
+        xp_earned: data.xp_earned,
+        quizId: id,
+        topic: quiz.topic 
+      } 
+    });
   }
 
   return (

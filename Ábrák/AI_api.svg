@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="408pt" height="563pt" viewBox="0.00 0.00 408.00 563.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 559)">
+<title>G</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-559 403.77,-559 403.77,4 -4,4"/>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#0066ff" stroke="black" points="263.22,-555 206.66,-537 263.22,-519 319.79,-537 263.22,-555"/>
+<polyline fill="none" stroke="black" points="218.09,-540.64 218.09,-533.36"/>
+<polyline fill="none" stroke="black" points="251.79,-522.64 274.66,-522.64"/>
+<polyline fill="none" stroke="black" points="308.35,-533.36 308.35,-540.64"/>
+<polyline fill="none" stroke="black" points="274.66,-551.36 251.79,-551.36"/>
+<text xml:space="preserve" text-anchor="middle" x="263.22" y="-532.8" font-family="Inter" font-size="14.00">Kezdés</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#e0f2f1" stroke="black" points="323.9,-482 202.54,-482 202.54,-446 323.9,-446 323.9,-482"/>
+<text xml:space="preserve" text-anchor="middle" x="263.22" y="-459.8" font-family="Inter" font-size="14.00">Téma kiválasztása</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M263.22,-518.81C263.22,-511.23 263.22,-502.1 263.22,-493.54"/>
+<polygon fill="black" stroke="black" points="266.72,-493.54 263.22,-483.54 259.72,-493.54 266.72,-493.54"/>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#ffccbc" stroke="black" points="269.56,-409 124.89,-409 124.89,-367.4 269.56,-367.4 269.56,-409"/>
+<text xml:space="preserve" text-anchor="middle" x="197.22" y="-392.4" font-family="Inter" font-size="14.00">ChatGPT API hívása</text>
+<text xml:space="preserve" text-anchor="middle" x="197.22" y="-375.6" font-family="Inter" font-size="14.00"> a quizz generálásához</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M247.58,-445.51C240.17,-437.22 231.12,-427.11 222.75,-417.75"/>
+<polygon fill="black" stroke="black" points="225.61,-415.69 216.33,-410.57 220.39,-420.35 225.61,-415.69"/>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="#fff9c4" stroke="black" points="150.22,-314.6 14.76,-296.6 150.22,-278.6 285.68,-296.6 150.22,-314.6"/>
+<text xml:space="preserve" text-anchor="middle" x="150.22" y="-292.4" font-family="Inter" font-size="14.00">Érvényes API válasz?</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M186.79,-367.31C180.07,-354.5 171.25,-337.69 163.96,-323.79"/>
+<polygon fill="black" stroke="black" points="167.19,-322.41 159.44,-315.18 160.99,-325.66 167.19,-322.41"/>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="#c8e6c9" stroke="black" points="208.45,-217.4 0,-217.4 0,-175.8 208.45,-175.8 208.45,-217.4"/>
+<text xml:space="preserve" text-anchor="middle" x="104.22" y="-200.8" font-family="Inter" font-size="14.00">A kvíz adatok</text>
+<text xml:space="preserve" text-anchor="middle" x="104.22" y="-184" font-family="Inter" font-size="14.00">(kérdések, válaszok) feldolgozása</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="#4caf50" stroke-width="2" d="M142.63,-279.42C136.26,-265.86 126.98,-246.09 119.14,-229.38"/>
+<polygon fill="#4caf50" stroke="#4caf50" stroke-width="2" points="122.45,-228.19 115.03,-220.63 116.11,-231.17 122.45,-228.19"/>
+<text xml:space="preserve" text-anchor="middle" x="145.13" y="-248" font-family="Inter" font-size="14.00">Igen</text>
+</g>
+<!-- H -->
+<g id="node7" class="node">
+<title>H</title>
+<polygon fill="#ffcdd2" stroke="black" points="399.77,-225.8 226.67,-225.8 226.67,-167.4 399.77,-167.4 399.77,-225.8"/>
+<text xml:space="preserve" text-anchor="middle" x="313.22" y="-209.2" font-family="Inter" font-size="14.00">Hiba kezelése:</text>
+<text xml:space="preserve" text-anchor="middle" x="313.22" y="-192.4" font-family="Inter" font-size="14.00">Hibaüzenet megjelenítése</text>
+<text xml:space="preserve" text-anchor="middle" x="313.22" y="-175.6" font-family="Inter" font-size="14.00">és újpróbálkozási lehetőség</text>
+</g>
+<!-- D&#45;&gt;H -->
+<g id="edge5" class="edge">
+<title>D-&gt;H</title>
+<path fill="none" stroke="#f44336" stroke-width="2" d="M173.92,-281.35C195.05,-268.65 226.85,-249.53 254.73,-232.77"/>
+<polygon fill="#f44336" stroke="#f44336" stroke-width="2" points="256.23,-235.95 263,-227.8 252.62,-229.95 256.23,-235.95"/>
+<text xml:space="preserve" text-anchor="middle" x="245.33" y="-248" font-family="Inter" font-size="14.00">Nem</text>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<polygon fill="#c8e6c9" stroke="black" points="203.38,-114.6 5.06,-114.6 5.06,-73 203.38,-73 203.38,-114.6"/>
+<text xml:space="preserve" text-anchor="middle" x="104.22" y="-98" font-family="Inter" font-size="14.00">Kvíz felület létrehozása és</text>
+<text xml:space="preserve" text-anchor="middle" x="104.22" y="-81.2" font-family="Inter" font-size="14.00"> megjelenítése a felhasználónak</text>
+</g>
+<!-- E&#45;&gt;F -->
+<g id="edge6" class="edge">
+<title>E-&gt;F</title>
+<path fill="none" stroke="black" d="M104.22,-175.69C104.22,-161.56 104.22,-142.31 104.22,-126.14"/>
+<polygon fill="black" stroke="black" points="107.72,-126.53 104.22,-116.53 100.72,-126.53 107.72,-126.53"/>
+</g>
+<!-- G -->
+<g id="node8" class="node">
+<title>G</title>
+<polygon fill="#b2ebf2" stroke="black" points="104.22,-36 59.03,-18 104.22,0 149.41,-18 104.22,-36"/>
+<polyline fill="none" stroke="black" points="70.18,-22.44 70.18,-13.56"/>
+<polyline fill="none" stroke="black" points="93.07,-4.44 115.37,-4.44"/>
+<polyline fill="none" stroke="black" points="138.26,-13.56 138.26,-22.44"/>
+<polyline fill="none" stroke="black" points="115.37,-31.56 93.07,-31.56"/>
+<text xml:space="preserve" text-anchor="middle" x="104.22" y="-13.8" font-family="Inter" font-size="14.00">Vége</text>
+</g>
+<!-- F&#45;&gt;G -->
+<g id="edge7" class="edge">
+<title>F-&gt;G</title>
+<path fill="none" stroke="black" d="M104.22,-72.63C104.22,-64.86 104.22,-55.83 104.22,-47.42"/>
+<polygon fill="black" stroke="black" points="107.72,-47.65 104.22,-37.65 100.72,-47.65 107.72,-47.65"/>
+</g>
+<!-- H&#45;&gt;B -->
+<g id="edge8" class="edge">
+<title>H-&gt;B</title>
+<path fill="none" stroke="#ffcc00" stroke-width="2" d="M309.52,-226.17C303.99,-266.98 292.68,-344.19 278.22,-409 276.46,-416.91 274.26,-425.39 272.08,-433.23"/>
+<polygon fill="#ffcc00" stroke="#ffcc00" stroke-width="2" points="268.76,-432.12 269.38,-442.69 275.49,-434.04 268.76,-432.12"/>
+<text xml:space="preserve" text-anchor="middle" x="338.51" y="-336.8" font-family="Inter" font-size="14.00">Újrapróbálkozás</text>
+</g>
+<!-- I -->
+<g id="node9" class="node">
+<title>I</title>
+<polygon fill="#b2ebf2" stroke="black" points="313.22,-111.8 268.03,-93.8 313.22,-75.8 358.41,-93.8 313.22,-111.8"/>
+<polyline fill="none" stroke="black" points="279.18,-98.24 279.18,-89.36"/>
+<polyline fill="none" stroke="black" points="302.07,-80.24 324.37,-80.24"/>
+<polyline fill="none" stroke="black" points="347.26,-89.36 347.26,-98.24"/>
+<polyline fill="none" stroke="black" points="324.37,-107.36 302.07,-107.36"/>
+<text xml:space="preserve" text-anchor="middle" x="313.22" y="-89.6" font-family="Inter" font-size="14.00">Vége</text>
+</g>
+<!-- H&#45;&gt;I -->
+<g id="edge9" class="edge">
+<title>H-&gt;I</title>
+<path fill="none" stroke="#f44336" stroke-width="2" d="M313.22,-166.98C313.22,-153.85 313.22,-138.28 313.22,-124.96"/>
+<polygon fill="#f44336" stroke="#f44336" stroke-width="2" points="316.72,-125.13 313.22,-115.13 309.72,-125.13 316.72,-125.13"/>
+<text xml:space="preserve" text-anchor="middle" x="350.16" y="-136.8" font-family="Inter" font-size="14.00">Megszakítás</text>
+</g>
+</g>
+</svg>

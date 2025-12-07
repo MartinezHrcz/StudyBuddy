@@ -39,6 +39,7 @@ A rendszer célja továbbá:
 | F10 | Szintlépés | A felhasználók pontokat és jelvényeket kapnak a kvízek kitöltéséért, napi aktivitásért és fejlődésért. |
 | F11 | AI-alapú ajánlórendszer | A rendszer a korábbi eredmények és a felhasználó tanulási mintázata alapján javasol új témákat vagy ismétlési lehetőségeket. |
 | F12 | Adat-export és jelentéskészítés | A felhasználó le tudja tölteni saját tanulási eredményeit CSV vagy PDF formátumban. |
+| F13 | Ranglista, a felhasználók összpontszámaikkal versenyezni tudjanak, "Hónap tanulója" rang ha benne van az első háromban. |
 
 ## 4. A felület felépítése és a technológiák kapcsolódása
 
@@ -68,6 +69,8 @@ A rendszer célja továbbá:
 - Az adatbázis mentések és visszaállítások automatizálása.
    - Tárolja: felhasználók, témák, kvízek, eredmények.  
    - Django ORM felel az adatlekérésekért és integritásért.
+
+![Rendszer fellépítés](./Ábrák/Adataramlas_graf.svg)
 
 ## 5. Felhasználó által elérhető funkciók
 
@@ -211,6 +214,43 @@ Az architektúra horizontálisan skálázható: a backend és az API gateway kü
 | **Funkcionális tesztek** | Felhasználói funkciók tesztelése | Cypress, Selenium |
 | **Teljesítményteszt** | AI hívások és válaszidő mérése | Locust, k6 |
 | **Biztonsági teszt** | Jogosultság, adatvédelem | OWASP ZAP |
+
+## Tesztelési Stratégia Részletezése
+
+A Study Buddy alkalmazás tesztelése a **tesztpiramis** elve alapján történik, a leggyakoribb, leggyorsabb **egységtesztektől** indulva a legritkább, leglassabb **E2E tesztekig**.
+
+### 12.1. Egységteszt (Unit Tests)
+A tesztelési piramis alapja, amely a legkisebb, izolált kódrészleteket (függvényeket, metódusokat) ellenőrzi.
+* **Frontend (React/Jest):**
+    * Ellenőrzi, hogy egy **React komponens** megfelelően renderelődik-e a kapott adatok alapján.
+    * Teszteli a segédfüggvényeket (pl. dátumformázás, validálás).
+    * **React Testing Library-t (RTL)** használ a felhasználói viselkedés szimulálására (pl. gombnyomás, input mező kitöltése).
+* **Backend (Django):**
+    * Teszteli a modell metódusokat (ORM).
+    * Ellenőrzi a pontszámító algoritmus helyességét.
+    * Teszteli az egyedi validátorokat és segédfüggvényeket.
+
+### 12.2. Integrációs Teszt (Integration Tests)
+Ellenőrzi, hogy a különböző komponensek vagy rétegek megfelelően működnek-e együtt.
+
+* **Köztes Réteg (Express/Supertest):**
+    * Teszteli, hogy a **Frontend** által küldött bejelentkezési kérés sikeresen eljut-e a **Django Backendhez**, és a **JWT token** létrejön.
+    * Ellenőrzi, hogy a jogosulatlan kérések megfelelően elutasításra kerülnek-e.
+* **Backend (Django):**
+    * Teszteli az **API endpointokat** (DRF), biztosítva, hogy a kéréskezelők (Views) megfelelően kommunikáljanak az adatbázissal és a szerializálókkal.
+    * **AI Integráció Tesztelése (Mocking):** Az **OpenAI API** hívásait **mockoljuk** (szimuláljuk) integrációs teszt közben. Ez biztosítja, hogy a teszt ne kerüljön pénzbe, és ne függjön a külső szolgáltatás elérhetőségétől, miközben ellenőrzi, hogy a **Django** a várt módon dolgozza fel a beérkező AI választ.
+
+### 12.3. Végponttól-Végpontig Teszt (End-to-End / E2E Tests)
+Szimulálja egy valódi felhasználó útját az alkalmazáson keresztül, ellenőrizve az egész rendszert a böngészőtől az adatbázisig.
+* **Cypress/Playwright:**
+    * *Példa forgatókönyv:* Egy felhasználó regisztrál, kiválasztja a "Kvantumfizika" témát, elindítja a kvíz generálását, kitölti a kvízt és ellenőrzi, hogy az eredmény megjelenik-e a statisztikai grafikonon.
+    * Ez teszteli a **React UI**, az **Express API gateway** és a **Django/PostgreSQL Backend** teljes láncolatát.
+
+### 12.4. Biztonsági Tesztek
+* **Jogosultság-Ellenőrzés:** Teszteli, hogy egy nem hitelesített felhasználó hozzáfér-e a védett API endpointokhoz (pl. `/api/profil`).
+* **Input Validáció:** Teszteli az XSS (Cross-Site Scripting) és SQL Injection elleni védekezést a bemeneti mezőkben.
+
+A tesztek futtatása a **folyamatos integráció (CI)** során automatizálható, így minden kódbázisba történő változtatás után ellenőrzésre kerül a rendszer stabilitása.
 
 ## 13. Jövőbeli fejlesztési lehetőségek
 
