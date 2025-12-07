@@ -78,3 +78,11 @@ class QuizAttemptModelTests(TestCase):
         attempt = QuizAttempt.objects.create(user=self.user, quiz=self.quiz)
         self.assertEqual(str(attempt), f'Attempt {attempt.id} by attempt_user')
 
+    def test_finished_at_is_optional(self):
+        attempt = QuizAttempt.objects.create(user=self.user, quiz=self.quiz)
+        self.assertIsNone(attempt.finished_at)
+
+        future_time = timezone.now() + timedelta(minutes=5)
+        attempt.finished_at = future_time
+        attempt.save()
+        self.assertEqual(attempt.finished_at, future_time)
