@@ -24,3 +24,16 @@ class QuizModelTests(TestCase):
     def test_quiz_owner_can_be_null(self):
         quiz = Quiz.objects.create(topic='Default Quiz', owner=None)
         self.assertIsNone(quiz.owner)
+
+class QuestionAndChoiceModelTests(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='test_user', password='p')
+        self.quiz = Quiz.objects.create(owner=self.user, topic='General')
+
+    def test_question_creation_and_relationship(self):
+        question = Question.objects.create(quiz=self.quiz, prompt='What is the capital of France?')
+        self.assertTrue(isinstance(question, Question))
+        self.assertEqual(question.quiz, self.quiz)
+        self.assertEqual(question.is_true_false, False)
+        self.assertEqual(self.quiz.questions.count(), 1)
+
