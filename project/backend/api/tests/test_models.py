@@ -51,3 +51,8 @@ class QuestionAndChoiceModelTests(TestCase):
         self.assertTrue(choice.is_correct)
         self.assertEqual(question.choices.count(), 1)
 
+    def test_choice_str_representation(self):
+        question = Question.objects.create(quiz=self.quiz, prompt='Test')
+        text = 'This choice text is also very long and needs to be truncated for display.'
+        choice = Choice.objects.create(question=question, text=text)
+        self.assertEqual(str(choice), 'This choice text is also very long and needs to be')
