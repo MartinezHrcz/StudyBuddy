@@ -20,3 +20,7 @@ class QuizModelTests(TestCase):
     def test_quiz_str_representation(self):
         quiz = Quiz.objects.create(owner=self.user, topic='Science')
         self.assertEqual(str(quiz), f'Quiz {quiz.id} - Science')
+
+    def test_quiz_owner_can_be_null(self):
+        quiz = Quiz.objects.create(topic='Default Quiz', owner=None)
+        self.assertIsNone(quiz.owner)
