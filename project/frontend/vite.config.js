@@ -14,6 +14,11 @@ export default defineConfig({
     }
   },
   css: {
-      postcss: './postcss.config.js', // ensures PostCSS loads Tailwind correctly
+    postcss: './postcss.config.js', // ensures PostCSS loads Tailwind correctly
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setupTests.js',
   },
 })
