@@ -9,6 +9,7 @@ import Leaderboard from './pages/Leaderboard';
 import Result from './pages/Result';
 import PasswordChangeForm from './pages/PwdChange';
 import { ThemeProvider } from './context/ThemeContext';
+import { Toaster } from 'react-hot-toast';
 
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem('access_token'));
@@ -24,6 +25,7 @@ export default function App() {
 
   return (
     <ThemeProvider>
+      <Toaster position="top-right" />
       <BrowserRouter>
         <Routes>
           <Route path="*" element={token ? <Navigate to="/main" /> : <Navigate to="/login" />} />

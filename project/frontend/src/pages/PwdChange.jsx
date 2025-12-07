@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiFetch } from "../services/api";
-import { Lock, ArrowLeft, CheckCircle, AlertCircle } from "lucide-react";
+import { Lock, ArrowLeft } from "lucide-react";
+import toast from "react-hot-toast";
 
 const PasswordChangeForm = () => {
   const navigate = useNavigate();
@@ -10,7 +11,6 @@ const PasswordChangeForm = () => {
     new_password: "",
     confirm_password: "",
   });
-  const [status, setStatus] = useState({ type: "", message: "" });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -18,15 +18,13 @@ const PasswordChangeForm = () => {
   };
 
   const validateForm = () => {
-    setStatus({ type: "", message: "" });
-
     if (formData.new_password.length < 8) {
-      setStatus({ type: "error", message: "New password must be at least 8 characters long." });
+      toast.error("New password must be at least 8 characters long.");
       return false;
     }
 
     if (formData.new_password !== formData.confirm_password) {
-      setStatus({ type: "error", message: "New password and confirm password do not match." });
+      toast.error("New password and confirm password do not match.");
       return false;
     }
 
@@ -47,7 +45,7 @@ const PasswordChangeForm = () => {
         }),
       });
 
-      setStatus({ type: "success", message: "Password updated successfully!" });
+      toast.success("Password updated successfully!");
       setFormData({ current_password: "", new_password: "", confirm_password: "" });
 
       // Optional: Redirect after success
@@ -57,10 +55,7 @@ const PasswordChangeForm = () => {
 
     } catch (error) {
       console.error("Password change error:", error);
-      setStatus({
-        type: "error",
-        message: error.detail || error.message || "Failed to update password. Please check your current password."
-      });
+      toast.error(error.detail || error.message || "Failed to update password. Please check your current password.");
     } finally {
       setLoading(false);
     }
@@ -85,22 +80,6 @@ const PasswordChangeForm = () => {
           </h2>
           <p className="text-gray-500 dark:text-gray-400 hc:text-gray-300 mt-2">Ensure your account stays secure</p>
         </div>
-
-        {status.message && (
-          <div
-            className={`p-4 rounded-xl mb-6 flex items-center gap-3 ${status.type === "error"
-                ? "bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800"
-                : "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800"
-              }`}
-          >
-            {status.type === "error" ? (
-              <AlertCircle className="w-5 h-5 flex-shrink-0" />
-            ) : (
-              <CheckCircle className="w-5 h-5 flex-shrink-0" />
-            )}
-            <p className="font-medium">{status.message}</p>
-          </div>
-        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
