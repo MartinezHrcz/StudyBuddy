@@ -165,6 +165,7 @@ export default function Profile() {
                       <th className="text-center px-3 py-2 font-semibold">Score</th>
                       <th className="text-center px-3 py-2 font-semibold">Accuracy</th>
                       <th className="text-right px-3 py-2 font-semibold">Date</th>
+                      <th className="text-center px-3 py-2 font-semibold">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -181,6 +182,14 @@ export default function Profile() {
                         </td>
                         <td className="text-right px-3 py-2 text-gray-600 text-xs">
                           {attempt.started_at ? new Date(attempt.started_at).toLocaleDateString() : 'N/A'}
+                        </td>
+                        <td className="text-center px-3 py-2">
+                          <button
+                            onClick={() => navigate(`/quiz/${attempt.quiz_id}?retake=true`)}
+                            className="px-2 py-1 bg-indigo-500 text-white text-xs rounded hover:bg-indigo-600 transition"
+                          >
+                            Retake
+                          </button>
                         </td>
                       </tr>
                     ))}

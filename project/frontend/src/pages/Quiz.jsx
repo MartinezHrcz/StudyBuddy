@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 
 export default function Quiz() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [quiz, setQuiz] = useState(null);
   const [answers, setAnswers] = useState({});
+  const isRetake = searchParams.get('retake') === 'true';
 
   useEffect(() => {
     fetch(`/api/quizzes/${id}/`)
@@ -29,7 +31,7 @@ export default function Quiz() {
         'Content-Type': 'application/json',
         'Authorization': token ? `Bearer ${token}` : ''
       },
-      body: JSON.stringify({ answers })
+      body: JSON.stringify({ answers, is_retake: isRetake })
     });
 
     const data = await res.json();
@@ -41,7 +43,8 @@ export default function Quiz() {
         total: data.total,
         xp_earned: data.xp_earned,
         quizId: id,
-        topic: quiz.topic 
+        topic: quiz.topic,
+        is_retake: data.is_retake
       } 
     });
   }
@@ -51,7 +54,7 @@ export default function Quiz() {
           <div className="w-full max-w-3xl bg-white shadow-2xl rounded-3xl px-8 py-10">
 
               <h2 className="text-3xl font-extrabold text-blue-600 mb-8 text-center">
-                Quiz: {quiz.topic}
+                Quiz: {quiz.topic} {isRetake && <span className="text-sm font-normal text-gray-500">(Retake)</span>}
               </h2>
 
               <div className="space-y-8">
