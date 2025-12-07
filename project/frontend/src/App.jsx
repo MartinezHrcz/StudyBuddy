@@ -8,6 +8,7 @@ import Profile from './pages/Profile';
 import Leaderboard from './pages/Leaderboard';
 import Result from './pages/Result';
 import PasswordChangeForm from './pages/PwdChange';
+import { ThemeProvider } from './context/ThemeContext';
 
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem('access_token'));
@@ -22,18 +23,20 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={token ? <Navigate to="/main" /> : <Navigate to="/login" />} />
-        <Route path="/login" element={<Login onLogin={() => setToken(localStorage.getItem('access_token'))} />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/main" element={token ? <Main /> : <Navigate to="/login" />} />
-        <Route path="/quiz/:id" element={token ? <Quiz /> : <Navigate to="/login" />} />
-        <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
-        <Route path="/leaderboard" element={token ? <Leaderboard /> : <Navigate to="/login" />} />
-        <Route path="/result" element={token ? <Result /> : <Navigate to="/login" />} />
-        <Route path="/change-password" element={token ? <PasswordChangeForm /> : <Navigate to="/login" />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={token ? <Navigate to="/main" /> : <Navigate to="/login" />} />
+          <Route path="/login" element={<Login onLogin={() => setToken(localStorage.getItem('access_token'))} />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/main" element={token ? <Main /> : <Navigate to="/login" />} />
+          <Route path="/quiz/:id" element={token ? <Quiz /> : <Navigate to="/login" />} />
+          <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
+          <Route path="/leaderboard" element={token ? <Leaderboard /> : <Navigate to="/login" />} />
+          <Route path="/result" element={token ? <Result /> : <Navigate to="/login" />} />
+          <Route path="/change-password" element={token ? <PasswordChangeForm /> : <Navigate to="/login" />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }

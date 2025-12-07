@@ -67,30 +67,30 @@ const PasswordChangeForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-start pt-16 bg-gradient-to-br from-gray-100 to-blue-100">
-      <div className="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-xl">
+    <div className="min-h-screen flex justify-center items-start pt-16 bg-gradient-to-br from-gray-100 to-blue-100 dark:from-gray-900 dark:to-gray-800 hc:from-black hc:to-black transition-colors duration-300">
+      <div className="bg-white dark:bg-gray-800 hc:bg-black hc:border-2 hc:border-white shadow-2xl rounded-3xl p-10 w-full max-w-xl transition-colors duration-300">
         <button
           onClick={() => navigate("/profile")}
-          className="mb-6 flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+          className="mb-6 flex items-center text-gray-600 dark:text-gray-400 hc:text-white hover:text-blue-600 dark:hover:text-blue-400 hc:hover:text-yellow-300 transition-colors"
         >
           <ArrowLeft className="w-5 h-5 mr-2" /> Back to Profile
         </button>
 
         <div className="text-center mb-8">
-          <div className="bg-blue-100 p-4 rounded-full inline-block mb-4">
-            <Lock className="w-8 h-8 text-blue-600" />
+          <div className="bg-blue-100 dark:bg-blue-900 hc:bg-gray-800 p-4 rounded-full inline-block mb-4">
+            <Lock className="w-8 h-8 text-blue-600 dark:text-blue-400 hc:text-yellow-300" />
           </div>
-          <h2 className="text-3xl font-extrabold text-blue-600 tracking-wide">
+          <h2 className="text-3xl font-extrabold text-blue-600 dark:text-blue-400 hc:text-yellow-300 tracking-wide">
             Change Password
           </h2>
-          <p className="text-gray-500 mt-2">Ensure your account stays secure</p>
+          <p className="text-gray-500 dark:text-gray-400 hc:text-gray-300 mt-2">Ensure your account stays secure</p>
         </div>
 
         {status.message && (
           <div
             className={`p-4 rounded-xl mb-6 flex items-center gap-3 ${status.type === "error"
-                ? "bg-red-50 text-red-700 border border-red-200"
-                : "bg-green-50 text-green-700 border border-green-200"
+                ? "bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800"
+                : "bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800"
               }`}
           >
             {status.type === "error" ? (
@@ -104,7 +104,7 @@ const PasswordChangeForm = () => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 hc:text-white mb-2">
               Current Password
             </label>
             <input
@@ -113,13 +113,13 @@ const PasswordChangeForm = () => {
               value={formData.current_password}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 hc:border-white bg-white dark:bg-gray-700 hc:bg-black text-gray-900 dark:text-white hc:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
               placeholder="Enter current password"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 hc:text-white mb-2">
               New Password
             </label>
             <input
@@ -128,13 +128,13 @@ const PasswordChangeForm = () => {
               value={formData.new_password}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 hc:border-white bg-white dark:bg-gray-700 hc:bg-black text-gray-900 dark:text-white hc:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
               placeholder="Enter new password (min. 8 chars)"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 hc:text-white mb-2">
               Confirm New Password
             </label>
             <input
@@ -143,7 +143,7 @@ const PasswordChangeForm = () => {
               value={formData.confirm_password}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 hc:border-white bg-white dark:bg-gray-700 hc:bg-black text-gray-900 dark:text-white hc:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
               placeholder="Confirm new password"
             />
           </div>
@@ -153,7 +153,7 @@ const PasswordChangeForm = () => {
             disabled={loading}
             className={`w-full py-3.5 rounded-xl font-bold text-white shadow-lg transition-all transform hover:-translate-y-0.5 ${loading
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-600 hover:bg-blue-700 hover:shadow-blue-500/30"
+                : "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 hc:bg-black hc:border-2 hc:border-white hc:hover:bg-gray-900 hover:shadow-blue-500/30"
               }`}
           >
             {loading ? "Updating..." : "Update Password"}

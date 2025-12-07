@@ -7,5 +7,10 @@ module.exports = {
     theme: {
         extend: {},
     },
-    plugins: [],
+    darkMode: 'class',
+    plugins: [
+        function ({ addVariant }) {
+            addVariant('hc', '.high-contrast &')
+        }
+    ],
 }
