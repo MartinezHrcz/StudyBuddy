@@ -53,3 +53,7 @@ class RegistrationAndAuthTests(QuizAPITests):
         response = self.unauth_client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
+    def test_chat_with_ai_requires_auth(self):
+        url = reverse('chat_with_ai')
+        response = self.unauth_client.post(url, {'message': 'Hi'}, format='json')
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
