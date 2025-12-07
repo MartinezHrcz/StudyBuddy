@@ -47,3 +47,9 @@ class RegistrationAndAuthTests(QuizAPITests):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertTrue(User.objects.filter(username='newuser').exists())
 
+    def test_register_view_invalid_data(self):
+        url = reverse('register')
+        data = {'username': 'short', 'password': '123'}
+        response = self.unauth_client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
