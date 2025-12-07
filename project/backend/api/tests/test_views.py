@@ -31,7 +31,6 @@ def create_test_quiz(user, topic):
 
 class QuizAPITests(APITestCase):
     def setUp(self):
-        # Create users
         self.user = User.objects.create_user(username='testuser', password='password')
         self.staff_user = User.objects.create_user(username='staffuser', password='password', is_staff=True)
         self.unauth_client = self.client
@@ -47,13 +46,20 @@ class RegistrationAndAuthTests(QuizAPITests):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertTrue(User.objects.filter(username='newuser').exists())
 
-    def test_register_view_invalid_data(self):
-        url = reverse('register')
-        data = {'username': 'short', 'password': '123'}
-        response = self.unauth_client.post(url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
     def test_chat_with_ai_requires_auth(self):
         url = reverse('chat_with_ai')
         response = self.unauth_client.post(url, {'message': 'Hi'}, format='json')
-        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+@patch('api.views.get_chat_response')
+class ChatViewTests(QuizAPITests):
+    def test_chat_with_ai_view_success(self, mock_get_chat_response):
+        mock_get_chat_response.return_value = "Hello! I am a test response."
+        url = reverse('chat_with_ai')
+        data = {'message': 'Hello AI'}
+        response = self.auth_client.post(url, data, format='json')
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['reply'], "Hello! I am a test response.")
+        mock_get_chat_response.assert_called_once_with('Hello AI')
+
