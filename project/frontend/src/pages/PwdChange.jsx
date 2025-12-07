@@ -1,191 +1,167 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { apiFetch } from "../services/api";
+import { Lock, ArrowLeft, CheckCircle, AlertCircle } from "lucide-react";
 
 const PasswordChangeForm = () => {
-  // 1. State for form fields
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    current_password: "",
+    new_password: "",
+    confirm_password: "",
+  });
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [loading, setLoading] = useState(false);
 
-  // 2. State for messages (success/error)
-  const [message, setMessage] = useState("");
-  const [isError, setIsError] = useState(false);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  // Simple validation function
   const validateForm = () => {
-    setMessage("");
-    setIsError(false);
+    setStatus({ type: "", message: "" });
 
-    if (newPassword.length < 8) {
-      setMessage("New password must be at least 8 characters long.");
-      setIsError(true);
+    if (formData.new_password.length < 8) {
+      setStatus({ type: "error", message: "New password must be at least 8 characters long." });
       return false;
     }
 
-    if (newPassword !== confirmPassword) {
-      setMessage("New password and confirm password do not match.");
-      setIsError(true);
+    if (formData.new_password !== formData.confirm_password) {
+      setStatus({ type: "error", message: "New password and confirm password do not match." });
       return false;
     }
 
     return true;
   };
 
-  // 3. Form submission handler
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateForm()) return;
 
-    if (!validateForm()) {
-      return;
+    setLoading(true);
+    try {
+      await apiFetch("/api/auth/password_change/", {
+        method: "POST",
+        body: JSON.stringify({
+          old_password: formData.current_password,
+          new_password: formData.new_password,
+        }),
+      });
+
+      setStatus({ type: "success", message: "Password updated successfully!" });
+      setFormData({ current_password: "", new_password: "", confirm_password: "" });
+
+      // Optional: Redirect after success
+      setTimeout(() => {
+        navigate("/profile");
+      }, 2000);
+
+    } catch (error) {
+      console.error("Password change error:", error);
+      setStatus({
+        type: "error",
+        message: error.detail || error.message || "Failed to update password. Please check your current password."
+      });
+    } finally {
+      setLoading(false);
     }
-
-    console.log("Attempting to change password...");
-    console.log("Current:", currentPassword);
-    console.log("New:", newPassword);
-
-    setTimeout(() => {
-      setMessage("Password updated successfully!");
-      setIsError(false);
-
-      setCurrentPassword("");
-      setNewPassword("");
-      setConfirmPassword("");
-    }, 1000);
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>Change Your Password</h2>
-
-      {/* Display messages */}
-      {message && (
-        <p
-          style={{
-            ...styles.message,
-            ...(isError ? styles.error : styles.success),
-          }}
+    <div className="min-h-screen flex justify-center items-start pt-16 bg-gradient-to-br from-gray-100 to-blue-100">
+      <div className="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-xl">
+        <button
+          onClick={() => navigate("/profile")}
+          className="mb-6 flex items-center text-gray-600 hover:text-blue-600 transition-colors"
         >
-          {message}
-        </p>
-      )}
-
-      <form onSubmit={handleSubmit} style={styles.form}>
-        {/* Current Password Field */}
-        <div style={styles.formGroup}>
-          <label htmlFor="current-password" style={styles.label}>
-            Current Password
-          </label>
-          <input
-            id="current-password"
-            type="password"
-            value={currentPassword}
-            onChange={(e) => setCurrentPassword(e.target.value)}
-            required
-            style={styles.input}
-          />
-        </div>
-
-        {/* New Password Field */}
-        <div style={styles.formGroup}>
-          <label htmlFor="new-password" style={styles.label}>
-            New Password
-          </label>
-          <input
-            id="new-password"
-            type="password"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            required
-            style={styles.input}
-          />
-        </div>
-
-        {/* Confirm New Password Field */}
-        <div style={styles.formGroup}>
-          <label htmlFor="confirm-password" style={styles.label}>
-            Confirm New Password
-          </label>
-          <input
-            id="confirm-password"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            style={styles.input}
-          />
-        </div>
-
-        {/* Submit Button */}
-        <button type="submit" style={styles.button}>
-          Update Password
+          <ArrowLeft className="w-5 h-5 mr-2" /> Back to Profile
         </button>
-      </form>
+
+        <div className="text-center mb-8">
+          <div className="bg-blue-100 p-4 rounded-full inline-block mb-4">
+            <Lock className="w-8 h-8 text-blue-600" />
+          </div>
+          <h2 className="text-3xl font-extrabold text-blue-600 tracking-wide">
+            Change Password
+          </h2>
+          <p className="text-gray-500 mt-2">Ensure your account stays secure</p>
+        </div>
+
+        {status.message && (
+          <div
+            className={`p-4 rounded-xl mb-6 flex items-center gap-3 ${status.type === "error"
+                ? "bg-red-50 text-red-700 border border-red-200"
+                : "bg-green-50 text-green-700 border border-green-200"
+              }`}
+          >
+            {status.type === "error" ? (
+              <AlertCircle className="w-5 h-5 flex-shrink-0" />
+            ) : (
+              <CheckCircle className="w-5 h-5 flex-shrink-0" />
+            )}
+            <p className="font-medium">{status.message}</p>
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Current Password
+            </label>
+            <input
+              type="password"
+              name="current_password"
+              value={formData.current_password}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+              placeholder="Enter current password"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              New Password
+            </label>
+            <input
+              type="password"
+              name="new_password"
+              value={formData.new_password}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+              placeholder="Enter new password (min. 8 chars)"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Confirm New Password
+            </label>
+            <input
+              type="password"
+              name="confirm_password"
+              value={formData.confirm_password}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+              placeholder="Confirm new password"
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={`w-full py-3.5 rounded-xl font-bold text-white shadow-lg transition-all transform hover:-translate-y-0.5 ${loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700 hover:shadow-blue-500/30"
+              }`}
+          >
+            {loading ? "Updating..." : "Update Password"}
+          </button>
+        </form>
+      </div>
     </div>
   );
-};
-
-// Basic inline styles for a clean, simple look
-const styles = {
-  container: {
-    maxWidth: "400px",
-    margin: "50px auto",
-    padding: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-    backgroundColor: "#fff",
-  },
-  heading: {
-    textAlign: "center",
-    color: "#333",
-    marginBottom: "20px",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  formGroup: {
-    marginBottom: "15px",
-  },
-  label: {
-    display: "block",
-    marginBottom: "5px",
-    fontWeight: "bold",
-    color: "#555",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    border: "1px solid #ddd",
-    borderRadius: "4px",
-    boxSizing: "border-box",
-  },
-  button: {
-    padding: "10px 15px",
-    backgroundColor: "#007bff",
-    color: "white",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-    fontSize: "16px",
-    marginTop: "10px",
-  },
-  message: {
-    padding: "10px",
-    borderRadius: "4px",
-    textAlign: "center",
-    marginBottom: "15px",
-    fontWeight: "bold",
-  },
-  success: {
-    backgroundColor: "#d4edda",
-    color: "#155724",
-    border: "1px solid #c3e6cb",
-  },
-  error: {
-    backgroundColor: "#f8d7da",
-    color: "#721c24",
-    border: "1px solid #f5c6cb",
-  },
 };
 
 export default PasswordChangeForm;

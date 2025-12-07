@@ -7,6 +7,7 @@ import Quiz from './pages/Quiz';
 import Profile from './pages/Profile';
 import Leaderboard from './pages/Leaderboard';
 import Result from './pages/Result';
+import PasswordChangeForm from './pages/PwdChange';
 
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem('access_token'));
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
         <Route path="/leaderboard" element={token ? <Leaderboard /> : <Navigate to="/login" />} />
         <Route path="/result" element={token ? <Result /> : <Navigate to="/login" />} />
+        <Route path="/change-password" element={token ? <PasswordChangeForm /> : <Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
   );
